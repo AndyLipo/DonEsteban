@@ -1,0 +1,60 @@
+const review = [
+    {
+        id: 1,
+        name: "Andrés",
+        avatar: "https://i.pravatar.cc/150?u=andrés",
+        rating: 5,
+        comment: "Excelente atención y calidad de servicio.",
+        service: "Reparaciones",
+    },
+    {
+        id: 2,
+        name: "Lucía",
+        avatar: "https://i.pravatar.cc/150?u=lucia",
+        rating: 4,
+        comment: "Muy buena experiencia en general.",
+        service: "Limpieza",
+    },
+    {
+        id: 3,
+        name: "Juan",
+        avatar: "https://i.pravatar.cc/150?u=juan",
+        rating: 4,
+        comment: "Muy buena experiencia en general.",
+        service: "Limpieza",
+    },
+    {
+        id: 4,
+        name: "Rocío",
+        avatar: "https://i.pravatar.cc/150?u=rocío",
+        rating: 4,
+        comment: "Muy buena experiencia en general.",
+        service: "Limpieza",
+    },
+    {
+        id: 5,
+        name: "José",
+        avatar: "https://i.pravatar.cc/150?u=josé",
+        rating: 4,
+        comment: "Muy buena experiencia en general.",
+        service: "Limpieza",
+    },
+    {
+        id: 6,
+        name: "Milagros",
+        avatar: "https://i.pravatar.cc/150?u=milagros",
+        rating: 4,
+        comment: "Muy buena experiencia en general.",
+        service: "Limpieza",
+    },
+    {
+        id: 7,
+        name: "Joaquín",
+        avatar: "https://i.pravatar.cc/150?u=joaquín",
+        rating: 4,
+        comment: "Muy buena experiencia en general.",
+        service: "Limpieza",
+    },
+];
+
+export default review;

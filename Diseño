@@ -1,0 +1,23 @@
+Para modo claro:
+
+Texto principal: text-slate-900 o text-gray-900 (máximo contraste)
+Texto secundario: text-slate-600 o text-gray-600
+Texto terciario: text-slate-500 o text-gray-500
+Texto deshabilitado: text-slate-400 o text-gray-400
+
+Para modo oscuro:
+
+Texto principal: text-slate-100 o text-gray-100
+Texto secundario: text-slate-300 o text-gray-300
+Texto terciario: text-slate-400 o text-gray-400
+Texto deshabilitado: text-slate-500 o text-gray-500
+
+Usando tus azules como acentos:
+
+Enlaces/CTA: text-blue-600 (#2469A0 - tu color primary)
+Enlaces hover: text-blue-700 (#1F5685)
+Texto de marca: text-blue-500 (#3B82F6)
+
+Estilo estructura texto: https://www.designtoolshub.com/tailwind-css/typography-generator
+
+agrandar logo en web 
