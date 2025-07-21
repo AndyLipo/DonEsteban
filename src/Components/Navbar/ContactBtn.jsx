@@ -1,9 +1,12 @@
-import React from 'react'
-
+import { Button } from "../ui/button"
 const ContactBtn = () => {
     return (
         <>
-            <p className='text-lg font-bold'>Contacto</p>
+            <div className="flex flex-wrap items-center gap-2 md:flex-row">
+                <Button>
+                    Solicite presupuesto
+                </Button>
+            </div>
         </>
     )
 }

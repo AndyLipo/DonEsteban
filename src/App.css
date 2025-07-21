@@ -150,6 +150,25 @@ body {
     }
 }
 
-.animate-marquee {
-    animation: marquee 40s linear infinite;
+
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
+
+/* .animate-marquee {
+        display: inline-block;
+        animation: marquee 25s linear infinite;
+    } */
+
+/* Agregar a tu archivo CSS */
+/* .radial-mask {
+    mask: radial-gradient(circle at center, black 60%, transparent 80%);
+    -webkit-mask: radial-gradient(circle at center, black 60%, transparent 80%);
+} */
