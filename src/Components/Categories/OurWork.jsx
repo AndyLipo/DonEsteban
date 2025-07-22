@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import WorkPng from './WorkPng'
 
 export const OurWork = () => {
     const headerImage =
@@ -109,24 +109,10 @@ export const OurWork = () => {
             {/* Gallery */}
             <div className="w-full max-w-[1845px] h-[456px] relative px-10 overflow-hidden">
                 {/* Textos superiores */}
-                <div className="relative bg-[#F2FF59] rounded-2xl w-xs h-100 ">
-                    <div className="absolute top-[63px] left-[42px] text-stone-950 text-[38px] font-medium font-['Archivo'] leading-[50px]">
-                        All our Services.
-                    </div>
-                    <div className="absolute top-[193px] left-[42px] w-[270px] text-stone-950 text-xl font-normal font-['Archivo'] leading-loose">
-                        Each pool is different. We can customize your service to fit your location’s needs.
-                    </div>
+
+                <div className="relative right-10">
+                    <WorkPng />
                 </div>
-
-
-                {/* Botón con z-20 para estar encima del SVG */}
-                <Link
-                    to="/about"
-                    className="absolute bottom-15 left-70 z-10 bg-black text-lime-400 w-16 h-16 rounded-full flex items-center justify-center transition-transform hover:scale-105 shadow-lg"
-                >
-                    <ArrowRight size={28} />
-                </Link>
-
                 {/* Tarjetas dinámicas desde gallery */}
                 <div className="absolute top-0 left-[405px] flex gap-[20px]">
                     {gallery.map((item, index) => (
