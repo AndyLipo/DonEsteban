@@ -18,101 +18,71 @@ export default function Footer() {
     const navLinks = [
         { name: "Home", path: "#" },
         { name: "About Us", path: "#" },
-        { name: "Blog", path: "#" },
         { name: "Services", path: "#" },
-        { name: "Pricing", path: "#" },
         { name: "Gallery", path: "#" },
-        { name: "Contacts", path: "#" },
+        { name: "Contact", path: "#" },
     ];
 
     return (
-        <footer className="relative w-full max-w-[1500px] h-auto py-8">
-            <div className="text-4xl tracking-tight leading-snug font-semibold">
-                <span className="text-[#0f1011]">Owning a </span>
-                <span className="text-[#8e8f95]">pool</span>
-                <span className="text-[#0f1011]"> is a fun part, <br />let us handle the rest.</span>
-                <hr className="w-150 border-2 text-[#0f1011]" />
-            </div>
-
-            <Separator className="w-[687px] h-0.5 my-8 bg-primary-text-h1" />
-
-            <NavigationMenu className="w-full max-w-[547px] mt-6">
-                <NavigationMenuList className="flex flex-wrap gap-[10px_24px]">
-                    {navLinks.map((link, index) => (
-                        <React.Fragment key={link.name}>
-                            <NavigationMenuItem className="inline-flex items-center">
-                                <NavigationMenuLink className="text-lg tracking-wide leading-6 italic font-medium text-primary-text-h1">
-                                    {link.name}
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            {index < navLinks.length - 1 && (
-                                <span className="font-extralight text-background-primary-03 text-xl font-[Bricolage_Grotesque-ExtraLight]">/</span>
-                            )}
-                        </React.Fragment>
-                    ))}
-                </NavigationMenuList>
-            </NavigationMenu>
-
-            <div className="flex justify-between w-full max-w-[840px] mt-12 ml-auto">
-                <div className="flex flex-col w-full gap-8">
-                    <Separator className="w-full h-0.5 bg-primary-text-h1 opacity-50" />
-
-                    <div className="flex items-start justify-between">
-                        <div className="w-[253px]">
-                            <div className="text-base tracking-wide leading-5 italic font-semibold">
-                                <span className="text-[#0f1011]">Our </span>
-                                <span className="text-[#8e8f95]">Gallery.</span>
-                            </div>
-                        </div>
-
-                        <div className="w-[253px]">
-                            <div className="flex flex-col gap-[22px]">
-                                <div className="text-lg tracking-wide leading-6 italic font-semibold text-primary-text-h1">
-                                    +1 999 888-77-64
-                                </div>
-                                <div className="text-lg tracking-wide leading-6 italic font-semibold text-primary-text-h1">
-                                    jalsarah@logoipsum.com
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex justify-end w-[182px]">
-                            <div className="relative w-[127.07px] h-[59.85px]">
-                                <div className="absolute w-[55px] h-[60px] bg-primary-blue rounded-[8.2px] border-[2.46px] border-solid border-[#d1d1d1] flex items-center justify-center">
-                                    <span className="text-white font-bold">JAL</span>
-                                </div>
-                                <span className="absolute right-0 top-1/2 -translate-y-1/2 font-bold">
-                                    SARAH
-                                </span>
-                            </div>
-                        </div>
+        <footer className="relative w-full max-w-[1200px] mx-auto h-auto px-4 py-8">
+            <div className="flex gap-[20px] items-start content-stretch flex-row justify-between w-full">
+                <div className="flex flex-col gap-6 max-w-[500px]">
+                    <div className="text-4xl tracking-tight leading-snug font-semibold">
+                        <p className="text-[#0f1011]">
+                            Owning a <span className="text-[#8e8f95]">pool</span> is a fun part,<br />
+                            let us handle the rest.
+                        </p>
                     </div>
+                    <Separator className="border-t border-[#8e8f95]" style={{ 'width': '500px' }} />
 
-                    <div className="relative self-end">
-                        <div className="relative w-[73.79px] h-[73.79px] bg-primary-text-h1 rounded-full flex items-center justify-center rotate-[-34.70deg]">
-                            <ArrowUpRight className="w-[26px] h-[22px] text-white rotate-[34.70deg]" />
-                        </div>
-                    </div>
+                    <NavigationMenu className="w-full max-w-[547px]">
+                        <NavigationMenuList className="flex flex-wrap gap-x-2 gap-y-2 mr-25">
+                            {navLinks.map((link, index) => (
+                                <React.Fragment key={link.name}>
+                                    <NavigationMenuItem>
+                                        <NavigationMenuLink className="text-sm text-black font-light">
+                                            {link.name}
+                                        </NavigationMenuLink>
+                                    </NavigationMenuItem>
+                                    {index < navLinks.length - 1 && <span className="text-black">/</span>}
+                                </React.Fragment>
+                            ))}
+                        </NavigationMenuList>
+                    </NavigationMenu>
+                </div>
 
-                    <div className="flex justify-between w-full mt-auto">
-                        <div className="opacity-60 font-normal text-primary-text-h1 text-[15px] tracking-[-0.15px] leading-7 font-['Archivo']">
-                            Privacy
-                        </div>
-                        <div className="opacity-60 font-normal text-primary-text-h1 text-[15px] tracking-[-0.15px] leading-7 font-['Archivo']">
-                            Disclaimer
-                        </div>
-                        <div className="opacity-60 font-normal text-primary-text-h1 text-[15px] text-right tracking-[-0.15px] leading-7 font-['Archivo']">
-                            © 2023 — Copyright
-                        </div>
+                <div className="flex flex-col items-start w-full max-w-[520px]">
+                    <Separator className="border-t border-[#8e8f95]" style={{ 'width': '520px' }} />
+                    <div className="text-6xl font-bold mt-5 justify-start ">
+                        <span className="text-[#0f1011]">Our </span>
+                        <br />
+                        <span className="text-[#8e8f95]">Gallery.</span>
                     </div>
                 </div>
+                <div className="text-center text-sm font-semibold text-black mt-15 -ml-96">
+                    +1 999 888-77-64
+                    <br /><br />
+                    jalsarah@logoipsum.com
+                </div>
+            </div>
+            <div className="flex justify-center mt-8 pl-70">
+                <div className="relative w-[74px] h-[74px] bg-black rounded-full flex items-center justify-center rotate-[-34.7deg]">
+                    <ArrowUpRight className="text-white w-6 h-6 rotate-[34.7deg]" />
+                </div>
+            </div>
+            <div className="flex justify-end mt-6 text-sm text-black opacity-60 font-light gap-30">
+                <div>Privacy</div>
+                <div>Disclaimer</div>
+                <div>© 2023 — Copyright</div>
             </div>
 
-            <div className="absolute bottom-0 left-[3px] flex gap-4">
-                <Facebook className="w-6 h-6" />
-                <Twitter className="w-6 h-6" />
-                <Instagram className="w-6 h-6" />
-                <Linkedin className="w-6 h-6" />
+
+
+            <div className="absolute bottom-6 left-4 flex gap-4 mt-6">
+                <Facebook className="siize-10" />
+                <Twitter className="siize-10" />
+                <Instagram className="siize-10" />
+                <Linkedin className="siize-10" />
             </div>
         </footer>
     );
