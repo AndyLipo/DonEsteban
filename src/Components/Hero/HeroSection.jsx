@@ -1,7 +1,3 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-import { EllipsisVertical } from "lucide-react"
 import { useState, useEffect } from "react"
 import clsx from "clsx"
 
@@ -34,14 +30,14 @@ const HeroSection = () => {
     }, [])
 
     return (
-        <section className="flex flex-col-reverse lg:flex-row justify-between  items-center px-6 lg:px-32 py-20 bg-white dark:bg-slate-900 mt-14">
+        <section className="flex flex-col-reverse lg:flex-row justify-between items-center px-6 lg:px-32 py-20 bg-white dark:bg-slate-900 mt-14">
             {/* Left */}
-            <div className="flex-1 space-y-4 text-left">
+            <div className="w-full lg:max-w-2xl space-y-4 text-left">
                 <h4 className="text-lg font-medium text-gray-600 dark:text-gray-300">
                     Build your dream pool.
                 </h4>
 
-                <div className="transition-all duration-500">
+                <div className="transition-all duration-500 min-h-[120px]">
                     <h1 className="text-5xl md:text-6xl font-bold text-black dark:text-white">
                         {texts[current].title}
                         <span className="text-gray-500"> {texts[current].subtitle}</span>
@@ -70,15 +66,12 @@ const HeroSection = () => {
             </div>
 
             {/* Right */}
-            <div className="flex-1 flex flex-col items-end justify-end gap-8 mb-10 lg:mb-0">
+            <div className="w-full lg:w-auto flex flex-col items-end justify-end gap-8 mb-10 lg:mb-0">
                 <div className="w-40 h-40 border-2 border-black dark:border-white rounded-full flex items-center justify-center text-center font-bold text-sm">
-                    {/* Puedes reemplazar esto con una imagen si tenés un logo tipo sello */}
                     <span className="text-black dark:text-white">
                         ADF<br />SERVICE<br />LOGO
                     </span>
                 </div>
-
-
                 <button
                     type="submit"
                     className="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-zinc-100 hover:text-gray-400 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
@@ -95,9 +88,9 @@ const HeroSection = () => {
                         ></path>
                     </svg>
                 </button>
-
             </div>
         </section>
+
     )
 }
 

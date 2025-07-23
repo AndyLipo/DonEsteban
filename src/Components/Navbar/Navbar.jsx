@@ -4,6 +4,13 @@ import LogoBtn from "./LogoBtn"
 import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
+
+    const handleClick = () => {
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <>
             <nav
@@ -19,7 +26,7 @@ const Navbar = () => {
                     <NavLink to="/About" className="hover:opacity-80 transition-opacity">
                         <ContactCall />
                     </NavLink>
-                    <NavLink to="/Contact" className="hover:opacity-80 transition-opacity">
+                    <NavLink to="/" className="hover:opacity-80 transition-opacity" onClick={handleClick}>
                         <ContactBtn />
                     </NavLink>
                 </div>

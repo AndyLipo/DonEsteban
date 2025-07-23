@@ -12,18 +12,22 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight } from "lucide-react";
-import React from "react";
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function BenefitsOfAn() {
     const poolTypes = [
-        { value: "indoor", label: "Indoor Pool" },
-        { value: "outdoor", label: "Outdoor Pool" },
-        { value: "infinity", label: "Infinity Pool" },
-        { value: "lap", label: "Lap Pool" },
+        { value: "indoor", label: "Desagote de pileta" },
+        { value: "outdoor", label: "Desagote de pozo" },
+        { value: "infinity", label: "Desagote industrial" },
+        { value: "lap", label: "Alquiler de Camiones" },
     ];
 
+    const [state, handleSubmit] = useForm("xjkobqka");
+    if (state.succeeded) {
+        return <p>Thanks for joining!</p>;
+    }
     return (
-        <div className="container mx-auto px-4 py-12 max-w-7xl">
+        <div className="container mx-auto px-4 py-12 max-w-7xl relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Left section */}
                 <div className="space-y-6">
@@ -65,34 +69,34 @@ export default function BenefitsOfAn() {
             </div>
 
             {/* Form section */}
-            <Card className="mt-16 rounded-[40px] bg-neutral-200 overflow-hidden">
+            <Card className="mt-16 rounded-[40px] bg-neutral-200 overflow-hidden relative" id="contact-form">
                 <CardContent className="p-0">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {/* Form */}
                         <div className="p-16 space-y-8">
                             <h3 className="text-[90px] font-[500] tracking-[-3.6px] font-[Archivo]">
-                                <span className="text-[#3b3b3c]">Request a </span>
-                                <span className="text-[#8e8f95]">Quote.</span>
+                                <span className="text-[#3b3b3c]">Solicitar un </span>
+                                <span className="text-[#8e8f95]">Presupuesto.</span>
                             </h3>
 
-                            <div className="space-y-6">
+                            <form className="space-y-6" onSubmit={handleSubmit} method="POST">
                                 <div className="space-y-2">
                                     <Label
                                         htmlFor="pool-type"
-                                        className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-[Archivo] text-[#3b3b3d]"
+                                        className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-['Archivo'] text-[#3b3b3d]"
                                     >
-                                        Pool Type
+                                        Motivo de Consulta
                                     </Label>
                                     <Select>
                                         <SelectTrigger className="w-full h-[69px] bg-white rounded-md shadow-[0px_2px_4px_rgba(0,0,0,0.1)] px-5">
                                             <SelectValue
-                                                placeholder="Select Type"
-                                                className="text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-[Archivo] text-[#8f9096]"
+                                                placeholder="Motivo de consulta"
+                                                className="text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-['Archivo'] text-[#8f9096]"
                                             />
                                         </SelectTrigger>
                                         <SelectContent>
                                             {poolTypes.map((type) => (
-                                                <SelectItem key={type.value} value={type.value}>
+                                                <SelectItem key={type.value} value={type.value} name="motivo" required>
                                                     {type.label}
                                                 </SelectItem>
                                             ))}
@@ -104,28 +108,41 @@ export default function BenefitsOfAn() {
                                     <div className="space-y-2">
                                         <Label
                                             htmlFor="name"
-                                            className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-[Archivo] text-[#3b3b3d]"
+                                            className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-['Archivo'] text-[#3b3b3d]"
                                         >
-                                            Your Name
+                                            Nombre
                                         </Label>
                                         <Input
                                             id="name"
-                                            defaultValue="Anuradha"
-                                            className="h-[69px] bg-white rounded-md shadow-[0px_2px_4px_rgba(0,0,0,0.1)] px-5 text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-[Archivo] text-[#8f9096]"
+                                            placeholder="Nombre"
+                                            name="name"
+                                            className="h-[69px] bg-white rounded-md shadow-[0px_2px_4px_rgba(0,0,0,0.1)] px-5 text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-['Archivo'] text-[#8f9096]"
+                                        />
+                                        <ValidationError
+                                            prefix="name"
+                                            field="name"
+                                            errors={state.errors}
                                         />
                                     </div>
 
                                     <div className="space-y-2">
                                         <Label
                                             htmlFor="email"
-                                            className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-[Archivo] text-[#3b3b3d]"
+                                            className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-['Archivo'] text-[#3b3b3d]"
                                         >
                                             Email
                                         </Label>
                                         <Input
                                             id="email"
-                                            defaultValue="anu@sample.com"
-                                            className="h-[69px] bg-white rounded-md shadow-[0px_2px_4px_rgba(0,0,0,0.1)] px-5 text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-[Archivo] text-[#8f9096]"
+                                            placeholder="ejemplo@gmail.com"
+                                            name="email"
+                                            type="email"
+                                            className="h-[69px] bg-white rounded-md shadow-[0px_2px_4px_rgba(0,0,0,0.1)] px-5 text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-['Archivo'] text-[#8f9096]"
+                                        />
+                                        <ValidationError
+                                            prefix="Email"
+                                            field="email"
+                                            errors={state.errors}
                                         />
                                     </div>
                                 </div>
@@ -133,14 +150,21 @@ export default function BenefitsOfAn() {
                                 <div className="space-y-2">
                                     <Label
                                         htmlFor="message"
-                                        className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-[Archivo] text-[#3b3b3d]"
+                                        className="text-[20px] font-[400] leading-[32px] tracking-[-0.4px] font-['Archivo'] text-[#3b3b3d]"
                                     >
-                                        Write Something
+                                        Descripción
                                     </Label>
                                     <Textarea
                                         id="message"
-                                        placeholder="Your message"
-                                        className="min-h-[154px] bg-white rounded-md px-5 py-4 text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-[Archivo] text-[#8f9096]"
+                                        placeholder="Dejá tu mensaje"
+                                        name="message"
+                                        required
+                                        className="min-h-[154px] bg-white rounded-md px-5 py-4 text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-['Archivo'] text-[#8f9096]"
+                                    />
+                                    <ValidationError
+                                        prefix="message"
+                                        field="message"
+                                        errors={state.errors}
                                     />
                                 </div>
 
@@ -148,16 +172,16 @@ export default function BenefitsOfAn() {
                                     <Checkbox className="w-[27px] h-[27px] rounded-md border-2 border-[#bdbdbd] bg-white" />
                                     <Label
                                         htmlFor="terms"
-                                        className="text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-[Archivo] text-[#3b3b3d]"
+                                        className="text-[18px] font-[400] leading-[28px] tracking-[-0.18px] font-['Archivo'] text-[#3b3b3d]"
                                     >
-                                        I agree that my submitted data is being collected and
-                                        stored.
+                                        I agree with the terms and conditions.
                                     </Label>
                                 </div>
 
                                 <Button
                                     variant="outline"
                                     className="rounded-full h-auto py-4 px-8 bg-[#0f1011] text-white hover:bg-[#0f1011]/90 group"
+                                    type="submit" disabled={state.submitting}
                                 >
                                     <span className="font-[600] text-xl tracking-[-0.2px] font-[Archivo] text-[#f1f1f1]">
                                         Submit
@@ -166,7 +190,7 @@ export default function BenefitsOfAn() {
                                         <ArrowRight className="h-4 w-6 text-[#0f1011]" />
                                     </div>
                                 </Button>
-                            </div>
+                            </form>
                         </div>
 
                         {/* Image */}

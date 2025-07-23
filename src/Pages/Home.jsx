@@ -1,8 +1,6 @@
 import AboutHome from '@/Components/AboutHome/AboutHome'
 import HeroSection from '@/Components/Hero/HeroSection'
-// import ImageGalery from '@/Components/ImageGallery/ImageGalery'
 import Navbar from '@/Components/Navbar/Navbar'
-// import Accordion from '@/Components/Accordion/AccordionHome'
 import ContactForm from '@/Components/ContactHome/ContactForm'
 import MapSection from '@/Components/GoogleMap/MapSection'
 import WhatssaAppBtn from '@/Components/WhatssAppBtn/WhatssAppBtn'
