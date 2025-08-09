@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pp2h8px1-5173.brs.devtunnels.ms/

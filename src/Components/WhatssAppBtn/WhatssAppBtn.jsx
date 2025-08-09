@@ -1,7 +1,7 @@
-import { MessageCircle } from 'lucide-react'; // No hay ícono de WhatsApp exacto, pero este funciona bien como chat
+import { MessageCircle } from 'lucide-react';
 
 const WhatssAppBtn = () => {
-    const phoneNumber = '5491123456789'; // Reemplaza con tu número real
+    const phoneNumber = '5491136349494';
     const message = '¡Hola! Me gustaría hacer una consulta sobre sus servicios.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

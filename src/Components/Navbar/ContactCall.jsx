@@ -3,7 +3,7 @@ import React from 'react'
 const ContactCall = () => {
     return (
         <>
-            <p className='text-sm font-bold'>LLame ahora: 11 5751-6632</p>
+            <p className='text-sm font-bold'>LLame ahora: 11 3634-9494</p>
         </>
     )
 }

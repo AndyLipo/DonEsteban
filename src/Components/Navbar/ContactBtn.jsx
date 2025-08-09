@@ -1,13 +1,12 @@
 import { Button } from "../ui/button"
-const ContactBtn = () => {
+
+const ContactBtn = ({ onClick }) => {
     return (
-        <>
-            <div className="flex flex-wrap items-center gap-2 md:flex-row">
-                <Button>
-                    Solicite presupuesto
-                </Button>
-            </div>
-        </>
+        <Button
+            onClick={onClick}
+            className={`flex flex-wrap items-center gap-2 md:flex-row bg-black text-white`}>
+            Solicite presupuesto
+        </Button>
     )
 }
 

@@ -1,61 +1,64 @@
-import AboutHome from '@/Components/AboutHome/AboutHome'
-import HeroSection from '@/Components/Hero/HeroSection'
+import { Suspense } from 'react'
 import Navbar from '@/Components/Navbar/Navbar'
-import ContactForm from '@/Components/ContactHome/ContactForm'
-import MapSection from '@/Components/GoogleMap/MapSection'
+import HeroSection from '@/Components/Hero/HeroSection'
 import WhatssaAppBtn from '@/Components/WhatssAppBtn/WhatssAppBtn'
-import Footer from '@/Components/Footer/Footer'
-import DreamGallery from '@/Components/Hero/DreamGallery'
-import { TrustSupport } from '@/Components/AboutHome/TrustSupport'
-import { OurWork } from '@/Components/Categories/OurWork'
-import Testimonial from '@/Components/Testimonial/Testimonial'
+import LazySection from '@/Components/LazySection'
 
-const Home = () => {
-
+const HomeAdvanced = () => {
     return (
-        <>
-            <div className='bg-white'>
-                <nav>
-                    <Navbar />
-                </nav>
-                <header className='text-center'>
+        <div className='bg-white overflow-x-hidden'>
+            <nav>
+                <Navbar />
+            </nav>
+
+            <main className="space-y-14 md:space-y-32">
+                <section className="px-4 sm:px-6">
                     <HeroSection />
-                </header>
-                <section className='my-40'>
-                    <DreamGallery />
-                </section>
-                <section className='my-40'>
-                    <ContactForm />
-                </section>
-                <section className='my-40'>
-                    <AboutHome />
-                </section>
-                <section className='my-40'>
-                    <TrustSupport />
-                </section>
-                <section className='my-40'>
-                    <OurWork />
-                </section>
-                <section className=''>
-                    <Testimonial />
                 </section>
 
+                <LazySection
+                    importFunc={() => import('@/Components/Hero/DreamGallery/DreamGallery')}
+                    fallbackHeight="h-64"
+                />
 
+                <LazySection
+                    importFunc={() => import('@/Components/ContactHome/ContactForm')}
+                    fallbackHeight="h-96"
+                    id="contact-form"
+                />
 
-                <section className='my-40'>
-                    <MapSection />
-                </section>
+                <LazySection
+                    importFunc={() => import('@/Components/AboutHome/AboutHome')}
+                />
 
-                <section className='my-40'>
-                    <WhatssaAppBtn />
-                </section>
+                <LazySection
+                    importFunc={() => import('@/Components/AboutHome/TrustSupport')}
+                />
 
-                <section className=''>
-                    <Footer />
-                </section>
-            </div>
-        </>
+                <LazySection
+                    importFunc={() => import('@/Components/Categories/OurWork')}
+                />
+
+                <LazySection
+                    importFunc={() => import('@/Components/Testimonial/Testimonial')}
+                />
+
+                <LazySection
+                    importFunc={() => import('@/Components/GoogleMap/MapSection')}
+                    className="px-0"
+                    fallbackHeight="h-80"
+                />
+            </main>
+
+            <LazySection
+                importFunc={() => import('@/Components/Footer/Footer')}
+                className=""
+                fallbackHeight="h-40"
+            />
+
+            <WhatssaAppBtn />
+        </div>
     )
 }
 
-export default Home
+export default HomeAdvanced;

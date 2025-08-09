@@ -1,39 +1,78 @@
-import ContactBtn from "./ContactBtn"
-import ContactCall from "./ContactCall"
-import LogoBtn from "./LogoBtn"
-import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
+import LogoBtn from './LogoBtn'
+import ContactBtn from './ContactBtn'
+import ContactCall from './ContactCall'
 
-const Navbar = () => {
+export default function Navbar() {
+    const [menuOpen, setMenuOpen] = useState(false)
+    const navigate = useNavigate()
 
-    const handleClick = () => {
-        const form = document.getElementById('contact-form');
-        if (form) {
-            form.scrollIntoView({ behavior: 'smooth' });
+    const handleScrollToForm = () => {
+        if (window.location.pathname !== '/') {
+            navigate('/', { state: { scrollToForm: true } })
+        } else {
+            const form = document.getElementById('contact-form')
+            if (form) form.scrollIntoView({ behavior: 'smooth' })
         }
-    };
+        setMenuOpen(false)
+    }
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen)
+    }
+
     return (
-        <>
-            <nav
-                role="navigation"
-                aria-label="Navegación principal"
-                className="flex justify-between fixed top-0 left-0 right-0 px-4 sm:px-6 text-slate-900 dark:text-slate-100 z-50 sm:rounded-lg border-b border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md"
-            >
+        <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white">
+            <div className="flex items-center justify-between px-4 py-3 sm:px-6">
                 <NavLink to="/" end className="flex-shrink-0">
                     <LogoBtn />
                 </NavLink>
 
-                <div className="flex items-center gap-3 sm:gap-6">
-                    <NavLink to="/About" className="hover:opacity-80 transition-opacity">
+                <nav className="hidden md:flex md:items-center md:space-x-8">
+                    <div to="/About" className="hover:opacity-80 transition-opacity">
+                        <ContactCall />
+                    </div>
+                    <ContactBtn onClick={handleScrollToForm} className="hover:opacity-80 transition-opacity" />
+                </nav>
+
+                <div className="md:hidden">
+                    <button
+                        onClick={toggleMenu}
+                        className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                        aria-label={menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+                        aria-expanded={menuOpen}
+                        aria-controls="mobile-menu"
+                        type="button"
+                    >
+                        {menuOpen ? (
+                            <X size={24} aria-hidden="true" />
+                        ) : (
+                            <Menu size={24} aria-hidden="true" />
+                        )}
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            {menuOpen && (
+                <div className="md:hidden bg-white border-t text-center space-y-4 py-6 text-sm font-medium animate__animated animate__fadeIn">
+                    <NavLink
+                        to="/About"
+                        className="hover:opacity-80 transition-opacity"
+                        onClick={() => setMenuOpen(false)}
+                    >
                         <ContactCall />
                     </NavLink>
-                    <NavLink to="/" className="hover:opacity-80 transition-opacity" onClick={handleClick}>
-                        <ContactBtn />
-                    </NavLink>
-                </div>
-            </nav>
 
-        </>
+                    <button
+                        onClick={handleScrollToForm}
+                        className="hover:opacity-80 transition-opacity"
+                    >
+                        <ContactBtn />
+                    </button>
+                </div>
+            )}
+        </header>
     )
 }
-
-export default Navbar

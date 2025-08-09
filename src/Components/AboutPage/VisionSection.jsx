@@ -1,0 +1,68 @@
+import { CheckCircle, Wrench } from 'lucide-react';
+
+const VisionSection = () => (
+    <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <ServiceCard />
+                <VisionContent />
+            </div>
+        </div>
+    </section>
+);
+
+const ServiceCard = () => (
+    <div className="relative">
+        <div className="bg-gradient-to-br from-orange-400 to-red-400 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="h-80 bg-gradient-to-br from-orange-300 to-red-300 flex items-center justify-center">
+                <div className="text-center text-white">
+                    <Wrench className="w-16 h-16 mx-auto mb-4 opacity-80" />
+                    <p className="text-lg font-medium">Servicio Profesional</p>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const VisionContent = () => {
+    const services = [
+        "Servicio nocturno",
+        "Desagote de piletas",
+        "Desagote de pozos ciegos"
+    ];
+
+    return (
+        <div>
+            <div className="mb-6">
+                <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                    Servicio de calidad
+                </span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                Nuestra <span className="text-blue-600">Visión</span> de la empresa
+            </h2>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+                Ser los líderes en servicios ambientales con camiones atmosféricos en la región,
+                reconocida por su compromiso con el medioambiente, la innovación constante y
+                la excelencia en la atención al cliente.
+            </p>
+            <div className="space-y-4">
+                {services.map((service, index) => (
+                    <ServiceItem key={index} text={service} />
+                ))}
+            </div>
+            <button className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                Saber Más
+            </button>
+        </div>
+    );
+};
+
+const ServiceItem = ({ text }) => (
+    <div className="flex items-center gap-3">
+        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+        <span className="text-gray-700">{text}</span>
+    </div>
+);
+
+export default VisionSection;
