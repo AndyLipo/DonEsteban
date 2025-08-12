@@ -1,7 +1,7 @@
 import { Award, Users, Droplets } from 'lucide-react';
 
 const HeroSection = () => (
-    <section className="relative bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+    <section className="relative bg-gradient-to-br from-blue-50 to-cyan-50 py-20 mt-10">
         <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>

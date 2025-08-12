@@ -27,7 +27,7 @@ export default function Footer({
     showCopyright = true
 }) {
     return (
-        <footer className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+        <footer className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
                 {/* Columna 1 */}
                 <div className="space-y-6">
@@ -60,7 +60,6 @@ export default function Footer({
             <FooterBottom
                 links={footerLinks}
                 showCopyright={showCopyright}
-                className="mt-8 md:mt-2 ml-145"
             />
         </footer>
     )

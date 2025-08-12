@@ -23,7 +23,7 @@ export default function Navbar() {
     }
 
     return (
-        <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white">
+        <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white/70">
             <div className="flex items-center justify-between px-4 py-3 sm:px-6">
                 <NavLink to="/" end className="flex-shrink-0">
                     <LogoBtn />

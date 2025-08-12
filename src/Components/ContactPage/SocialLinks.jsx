@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 
-const SocialLinks = () => {
+const SocialLinks = ({ isContactPage = false }) => {
     const socialLinks = [
         {
             icon: Facebook,
@@ -21,15 +21,23 @@ const SocialLinks = () => {
         }
     ];
 
+    // Clases base para todas las páginas
+    const baseClasses = "absolute left-6 flex space-x-4";
+
+    // Clases específicas para la página de contacto
+    const contactPageClasses = isContactPage
+        ? "bottom-2 max-[785px]:bottom-2 min-[786px]:bottom-8"
+        : "bottom-8";
+
     return (
-        <div className="absolute bottom-8 left-6 flex space-x-4">
+        <div className={`${baseClasses} ${contactPageClasses}`}>
             {socialLinks.map(({ icon: Icon, href, label }, index) => (
                 <Link
                     key={index}
                     to={href}
                     target={href !== "#" ? "_blank" : undefined}
                     rel={href !== "#" ? "noopener noreferrer" : undefined}
-                    className="text-black hover:text-white transition-colors"
+                    className="text-black hover:text-[#3dd6af] transition-colors"
                     aria-label={label}
                 >
                     <Icon size={30} />

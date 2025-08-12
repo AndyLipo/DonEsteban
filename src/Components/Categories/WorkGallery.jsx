@@ -6,18 +6,15 @@ const WorkGallery = ({
     className = ""
 }) => {
     return (
-        <div className={`flex flex-col lg:flex-row items-start gap-6 ${className}`}>
-            {/* workPng component */}
-            <div className="w-full lg:w-[280px] flex-shrink-0">
-                {/* <img src={WorkPn} alt="Work" className="w-full h-auto" /> */}
-                <div className="w-full lg:w-[280px] flex-shrink-0">
-                    <WorkPng />
-                </div>
+        <div className={`flex flex-col lg:flex-row items-start gap-4 ${className}`}>
+            {/* WorkPng component */}
+            <div className="w-full lg:w-[230px] flex-shrink-0">
+                <WorkPng />
             </div>
 
             {/* Gallery cards */}
             <div className="w-full overflow-x-auto lg:overflow-visible pb-4">
-                <div className="flex lg:grid lg:grid-cols-4 gap-6 w-max lg:w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row gap-3 lg:gap-3">
                     {gallery.map((item) => (
                         <GalleryCard
                             key={item.id}

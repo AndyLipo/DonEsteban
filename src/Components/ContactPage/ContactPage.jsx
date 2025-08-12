@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useIntersectionObserver } from './useIntersectionObserver';
 import LazyVideo from './LazyVideo';
@@ -40,7 +38,7 @@ export default function ContactPage() {
                 <HeroSection />
 
                 {/* Social Media Links */}
-                <SocialLinks />
+                <SocialLinks isContactPage={true} />
             </div>
         </div>
     );

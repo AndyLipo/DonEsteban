@@ -8,7 +8,7 @@ const MenuFooter = () => {
             {badges.map((badge, index) => (
                 <div
                     key={index}
-                    className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium"
+                    className=" text-black px-2 py-1 rounded text-xs font-medium"
                 >
                     {badge}
                 </div>

@@ -7,8 +7,8 @@ import ValuesSection from './ValuesSection';
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-white">
-            <div className="h-16 bg-blue-600 flex items-center justify-center text-white font-semibold">
+        <div className="bg-white overflow-x-hidden">
+            <div className="">
                 <Navbar />
             </div>
 
@@ -17,7 +17,7 @@ export default function AboutPage() {
             <BenefitsSection />
             <ValuesSection />
 
-            <div className="py-8">
+            <div className="">
                 <Footer />
             </div>
         </div>

@@ -8,12 +8,31 @@ const FooterBottom = ({
     const currentYear = new Date().getFullYear()
 
     return (
-        <div className={`flex flex-col sm:flex-row justify-around items-center gap-1 text-sm text-gray-500  ${className}`}>
+        <div className={`
+            flex flex-row 
+            justify-center sm:justify-between 
+            items-center 
+            gap-6 sm:gap-1 md:gap-10
+            text-sm text-gray-500 
+            pt-1 mt-2 
+            border-t border-gray-200
+            ${className}
+        `}>
+            {/* Links de Privacidad y Descargo - siempre en fila */}
             {links.map((link, index) => (
-                <p key={index}>{link}</p>
+                <button
+                    key={index}
+                    className="hover:text-gray-700 transition-colors duration-200 cursor-pointer whitespace-nowrap"
+                >
+                    {link}
+                </button>
             ))}
+
+            {/* Copyright - siempre en la misma fila */}
             {showCopyright && (
-                <p>© {currentYear} — Copyright</p>
+                <p className="whitespace-nowrap">
+                    © {currentYear} — Copyright
+                </p>
             )}
         </div>
     )

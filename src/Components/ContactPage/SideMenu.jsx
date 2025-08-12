@@ -2,9 +2,9 @@ import React from 'react';
 import { X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useMenuItems } from './useMenuItems';
-import Logo from './Logo';
 import MenuItem from './MenuItem';
 import MenuFooter from './MenuFooter';
+import LogoBtn from '../Navbar/LogoBtn';
 
 const SideMenu = ({ isOpen, onClose }) => {
     const navigate = useNavigate();
@@ -37,7 +37,7 @@ const SideMenu = ({ isOpen, onClose }) => {
                     <X size={24} />
                 </button>
 
-                <Logo />
+                <LogoBtn />
 
                 {/* Menu Items */}
                 <nav className="py-6">

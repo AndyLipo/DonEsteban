@@ -21,7 +21,7 @@ const FormSelect = ({
                 {label}
             </Label>
             <Select name={name}>
-                <SelectTrigger className="h-14 md:h-16 bg-white w-52 md:w-114">
+                <SelectTrigger className="h-14 md:h-16 bg-white w-full min-w-0">
                     <SelectValue placeholder={placeholder} />
                 </SelectTrigger>
                 <SelectContent>
