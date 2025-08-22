@@ -10,7 +10,7 @@ const HeroContent = memo(({ texts, current, isTransitioning }) => {
     return (
         <div className="w-full lg:max-w-2xl space-y-4 text-left">
             <p className="text-base md:text-lg font-medium text-gray-600">
-                Don Esteban desagote.
+                Don Esteban desagotes.
             </p>
 
             <div className="min-h-[120px] md:min-h-[140px]">

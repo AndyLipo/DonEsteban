@@ -4,8 +4,16 @@ import { Menu, X } from 'lucide-react'
 import LogoBtn from './LogoBtn'
 import ContactBtn from './ContactBtn'
 import ContactCall from './ContactCall'
+import FooterNavigation from '../Footer/FooterNavigation'
 
-export default function Navbar() {
+export default function Navbar({
+    navLinks = [
+        { name: "Inicio", path: "/Inicio" },
+        { name: "Sobre nosotros", path: "/About" },
+        { name: "Contacto", path: "/Contacto" },
+        { name: "Solicitar Presupuesto", path: null },
+    ],
+}) {
     const [menuOpen, setMenuOpen] = useState(false)
     const navigate = useNavigate()
 
@@ -18,22 +26,32 @@ export default function Navbar() {
         }
         setMenuOpen(false)
     }
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen)
     }
 
+    // Función para manejar clicks en navLinks
+    const handleNavClick = (link) => {
+        if (link.name === "Solicitar Presupuesto") {
+            handleScrollToForm()
+        } else {
+            setMenuOpen(false)
+        }
+    }
+
     return (
         <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white/70">
-            <div className="flex items-center justify-between px-4 py-3 sm:px-6">
+            <div className="flex items-center justify-between px-3 py-2 sm:px-6">
                 <NavLink to="/" end className="flex-shrink-0">
                     <LogoBtn />
                 </NavLink>
 
-                <nav className="hidden md:flex md:items-center md:space-x-8">
-                    <div to="/About" className="hover:opacity-80 transition-opacity">
-                        <ContactCall />
-                    </div>
-                    <ContactBtn onClick={handleScrollToForm} className="hover:opacity-80 transition-opacity" />
+                <nav className="hidden md:flex md:items-center md:space-x-8 hover:opacity-80 transition-opacity">
+                    <FooterNavigation
+                        links={navLinks}
+                        onNavClick={handleNavClick}
+                    />
                 </nav>
 
                 <div className="md:hidden">
@@ -57,20 +75,26 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="md:hidden bg-white border-t text-center space-y-4 py-6 text-sm font-medium animate__animated animate__fadeIn">
-                    <NavLink
-                        to="/About"
-                        className="hover:opacity-80 transition-opacity"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        <ContactCall />
-                    </NavLink>
-
-                    <button
-                        onClick={handleScrollToForm}
-                        className="hover:opacity-80 transition-opacity"
-                    >
-                        <ContactBtn />
-                    </button>
+                    {navLinks.map((link) => (
+                        link.name === "Solicite Presupuesto" ? (
+                            <button
+                                key={link.name}
+                                onClick={handleScrollToForm}
+                                className="block w-full text-center hover:opacity-80 transition-opacity py-2"
+                            >
+                                {link.name}
+                            </button>
+                        ) : (
+                            <NavLink
+                                key={link.name}
+                                to={link.path}
+                                className="block hover:opacity-80 transition-opacity py-2"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {link.name}
+                            </NavLink>
+                        )
+                    ))}
                 </div>
             )}
         </header>

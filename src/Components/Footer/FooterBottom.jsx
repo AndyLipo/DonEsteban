@@ -13,8 +13,7 @@ const FooterBottom = ({
             justify-center sm:justify-between 
             items-center 
             gap-6 sm:gap-1 md:gap-10
-            text-sm text-gray-500 
-            pt-1 mt-2 
+            text-sm text-gray-500   
             border-t border-gray-200
             ${className}
         `}>

@@ -1,5 +1,5 @@
 import CamionTrb from '../../../assets/camion-trabajo.webp'
-import Camion from '../../../assets/camion-desagote.webp'
+import Camion from '../../../assets/camion-costado.webp'
 export const galleryConfig = {
     mainImage: {
         src: Camion,

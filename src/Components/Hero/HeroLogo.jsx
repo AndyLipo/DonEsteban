@@ -21,7 +21,7 @@ const HeroLogo = memo(() => {
                     <img
                         loading="lazy"
                         src={Present}
-                        alt="Logo Don Esteban Desagote - Empresa de desagotes y construcción"
+                        alt="Logo Don Esteban Desagotes - Empresa de desagotes y construcción"
                         className="object-contain rounded-4xl md:rounded-4xl "
                         width="384"
                         height="384"

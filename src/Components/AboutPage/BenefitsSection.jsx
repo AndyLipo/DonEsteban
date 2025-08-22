@@ -1,5 +1,5 @@
 import { Shield, Clock, Zap } from 'lucide-react';
-
+import Camion3 from '../../assets/camion-3.webp'
 const BenefitsSection = () => (
     <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
@@ -26,13 +26,15 @@ const BenefitCard = () => (
     <div className="relative">
         <div className="bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl overflow-hidden shadow-2xl">
             <div className="h-80 bg-gradient-to-br from-cyan-300 to-blue-400 flex items-center justify-center">
-                <div className="text-center text-white">
-                    <Shield className="w-16 h-16 mx-auto mb-4 opacity-80" />
-                </div>
+                <source />
+                <picture>
+                    <img src={Camion3} alt="Camion-desagote" className='w-85 rounded-3xl' />
+                </picture>
             </div>
         </div>
         <div className="absolute -bottom-6 -right-6 bg-yellow-400 rounded-full w-24 h-24 flex items-center justify-center shadow-lg">
-            <span className="text-2xl font-bold text-gray-900">01</span>
+            {/* <span className="text-2xl font-bold text-gray-900">01</span> */}
+            <Zap className="size-10 font-bold text-gray-900 motion-safe:animate-pulse" />
         </div>
     </div>
 );

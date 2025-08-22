@@ -5,18 +5,19 @@ import FooterContact from "./FooterContact"
 import SocialLinks from "./SocialLinks"
 import ScrollToTopButton from "./ScrollToTopButton"
 import FooterBottom from "./FooterBottom"
+import { Separator } from "@radix-ui/react-select"
 
 export default function Footer({
     heroTitle = "Tener un problema",
     heroHighlight = "es estresante,",
     heroSubtitle = "permitinos solucionartelo.",
-    navLinks = [
-        { name: "Inicio", path: "/Inicio" },
-        { name: "Sobre nosotros", path: "/About" },
-        { name: "Servicios", path: "#servicios" },
-        { name: "Nuestro trabajo", path: "/trabajo" },
-        { name: "Contacto", path: "/Contacto" },
-    ],
+    // navLinks = [
+    //     { name: "Inicio", path: "/Inicio" },
+    //     { name: "Sobre nosotros", path: "/About" },
+    //     { name: "Servicios", path: "#servicios" },
+    //     { name: "Nuestro trabajo", path: "/trabajo" },
+    //     { name: "Contacto", path: "/Contacto" },
+    // ],
     contactTitle = "Nuestro",
     contactTitleHighlight = "Trabajo.",
     phone = "+54 9 11 4044-2669",
@@ -28,15 +29,16 @@ export default function Footer({
 }) {
     return (
         <footer className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
+            <Separator className="border-t border-gray-400" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 md:gap-1">
                 {/* Columna 1 */}
-                <div className="space-y-6">
+                <div className="">
                     <FooterHero
                         title={heroTitle}
                         highlightText={heroHighlight}
                         subtitle={heroSubtitle}
                     />
-                    <FooterNavigation links={navLinks} />
+                    {/* <FooterNavigation links={navLinks} /> */}
                 </div>
 
                 {/* Columna 2 */}

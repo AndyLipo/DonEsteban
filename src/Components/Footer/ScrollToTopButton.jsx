@@ -20,8 +20,8 @@ const ScrollToTopButton = ({ className = "" }) => {
                     -mt-20
                     sm:-mt-24 sm:mr-4
                     md:-mt-32 md:mr-8
-                    lg:-mt-40 lg:mr-12
-                    xl:mr-16
+                    lg:-mt-30 lg:mr-12
+                    xl:mr-26
                     
                     /* Estilos base */
                     bg-black 

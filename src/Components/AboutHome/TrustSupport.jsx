@@ -7,13 +7,13 @@ export default function TrustSupport() {
                 {/* Item 1 */}
                 <div className="bg-white p-6 md:p-8 rounded-xl shadow-md">
                     <div className="mb-4">
-                        <span className="text-4xl md:text-5xl font-bold text-gray-800">25</span>
+                        <span className="text-4xl md:text-5xl font-bold text-gray-800">8</span>
                         <p className="text-lg md:text-xl text-gray-800 font-medium mt-2">
-                            años de experiencia.
+                            Años de experiencia.
                         </p>
                     </div>
                     <p className="text-gray-700 text-sm md:text-base">
-                        Por más de 25 años ofreciendo solo nuestros mejores servicios y productos
+                        Por más de 8 años ofreciendo solo nuestros mejores servicios y productos
                     </p>
                 </div>
 

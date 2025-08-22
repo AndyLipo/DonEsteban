@@ -14,7 +14,7 @@ const SocialLinks = ({
     const social = { ...defaultSocial, ...socialMedia }
 
     return (
-        <div className={`space-y-6 ${className}`}>
+        <div className={`${className}`}>
             <div className="flex gap-4">
                 <a
                     href={social.facebook}
@@ -22,7 +22,7 @@ const SocialLinks = ({
                     rel="noopener noreferrer"
                     className="hover:text-[#8be27e] transition-colors"
                 >
-                    <Facebook className="w-5 h-5" />
+                    <Facebook className="size-7" />
                 </a>
                 <a
                     href={social.instagram}
@@ -30,7 +30,7 @@ const SocialLinks = ({
                     rel="noopener noreferrer"
                     className="hover:text-[#8be27e] transition-colors"
                 >
-                    <Instagram className="w-5 h-5" />
+                    <Instagram className="size-7" />
                 </a>
                 <a
                     href={social.linkedin}
@@ -38,7 +38,7 @@ const SocialLinks = ({
                     rel="noopener noreferrer"
                     className="hover:text-[#8be27e] transition-colors"
                 >
-                    <Linkedin className="w-5 h-5" />
+                    <Linkedin className="size-7" />
                 </a>
             </div>
         </div>

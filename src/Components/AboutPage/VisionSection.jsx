@@ -1,5 +1,5 @@
 import { CheckCircle, Wrench } from 'lucide-react';
-
+import Camion2 from '../../assets/camion-2.webp'
 const VisionSection = () => (
     <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
@@ -16,8 +16,12 @@ const ServiceCard = () => (
         <div className="bg-gradient-to-br from-orange-400 to-red-400 rounded-2xl overflow-hidden shadow-2xl">
             <div className="h-80 bg-gradient-to-br from-orange-300 to-red-300 flex items-center justify-center">
                 <div className="text-center text-white">
-                    <Wrench className="w-16 h-16 mx-auto mb-4 opacity-80" />
-                    <p className="text-lg font-medium">Servicio Profesional</p>
+                    {/* <Wrench className="w-16 h-16 mx-auto mb-4 opacity-80" /> */}
+                    <picture>
+                        <source />
+                        <img src={Camion2} alt="camion-profesional" className="w-125 mx-auto opacity-80 rounded-2xl" />
+
+                    </picture>
                 </div>
             </div>
         </div>
@@ -27,8 +31,8 @@ const ServiceCard = () => (
 const VisionContent = () => {
     const services = [
         "Servicio nocturno",
-        "Desagote de piletas",
-        "Desagote de pozos ciegos"
+        "Desagotes de piletas",
+        "Desagotes de pozos ciegos"
     ];
 
     return (
@@ -51,9 +55,6 @@ const VisionContent = () => {
                     <ServiceItem key={index} text={service} />
                 ))}
             </div>
-            <button className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                Saber Más
-            </button>
         </div>
     );
 };
