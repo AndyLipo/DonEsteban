@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import LogoBtn from './LogoBtn'
-import ContactBtn from './ContactBtn'
-import ContactCall from './ContactCall'
 import FooterNavigation from '../Footer/FooterNavigation'
 
 export default function Navbar({
