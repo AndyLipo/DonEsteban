@@ -11,13 +11,6 @@ export default function Footer({
     heroTitle = "Tener un problema",
     heroHighlight = "es estresante,",
     heroSubtitle = "permitinos solucionartelo.",
-    // navLinks = [
-    //     { name: "Inicio", path: "/Inicio" },
-    //     { name: "Sobre nosotros", path: "/About" },
-    //     { name: "Servicios", path: "#servicios" },
-    //     { name: "Nuestro trabajo", path: "/trabajo" },
-    //     { name: "Contacto", path: "/Contacto" },
-    // ],
     contactTitle = "Nuestro",
     contactTitleHighlight = "Trabajo.",
     phone = "+54 9 11 4044-2669",

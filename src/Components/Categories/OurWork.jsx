@@ -1,10 +1,59 @@
+import { useState, useEffect } from "react";
 import { workConfig } from "./WorkConfig"
 import WorkHeader from "./WorkHeader"
 import ServicesGrid from "./ServicesGrid"
 import SpecializationHeader from "./SpecializationHeader"
 import WorkGallery from "./WorkGallery"
+
 const OurWork = () => {
     const { header, services, specialization, gallery } = workConfig
+    const [carouselOpen, setCarouselOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Combinar todas las imágenes
+    const allImages = [...services, ...gallery];
+
+    const openCarousel = (index, source) => {
+        if (source === 'services') {
+            setCurrentIndex(index); // Índices 0, 1
+        } else if (source === 'gallery') {
+            setCurrentIndex(services.length + index); // Índices 2, 3, 4, 5
+        }
+        setCarouselOpen(true);
+    };
+
+    const closeCarousel = () => {
+        setCarouselOpen(false);
+    };
+
+    const goToPrevious = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? allImages.length - 1 : prevIndex - 1
+        );
+    };
+
+    const goToNext = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === allImages.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    // Cerrar con la tecla Escape
+    useEffect(() => {
+        const handleEscape = (e) => {
+            if (e.key === "Escape") closeCarousel();
+        };
+
+        if (carouselOpen) {
+            document.addEventListener("keydown", handleEscape);
+            document.body.style.overflow = "hidden";
+        }
+
+        return () => {
+            document.removeEventListener("keydown", handleEscape);
+            document.body.style.overflow = "unset";
+        };
+    }, [carouselOpen]);
 
     return (
         <section
@@ -16,14 +65,76 @@ const OurWork = () => {
                 title={header.title}
                 alt={header.alt}
             />
-            <ServicesGrid services={services} />
+
+            <ServicesGrid
+                services={services}
+                onCardClick={(index) => openCarousel(index, 'services')}
+            />
 
             <SpecializationHeader
                 title={specialization.title}
                 description={specialization.description}
             />
 
-            <WorkGallery gallery={gallery} />
+            <WorkGallery
+                gallery={gallery}
+                onCardClick={(index) => openCarousel(index, 'gallery')}
+            />
+
+            {/* Overlay del carrusel */}
+            {carouselOpen && (
+                <div
+                    className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+                    onClick={closeCarousel}
+                >
+                    <div
+                        className="relative max-w-5xl max-h-full w-full h-full flex items-center justify-center"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Botón cerrar */}
+                        <button
+                            className="absolute top-4 right-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
+                            onClick={closeCarousel}
+                            aria-label="Cerrar carrusel"
+                        >
+                            &times;
+                        </button>
+
+                        {/* Flecha izquierda */}
+                        <button
+                            className="absolute left-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors md:left-8"
+                            onClick={goToPrevious}
+                            aria-label="Imagen anterior"
+                        >
+                            &#8249;
+                        </button>
+
+                        {/* Imagen */}
+                        <div className="relative w-full h-full flex items-center justify-center">
+                            <img
+                                src={allImages[currentIndex].img}
+                                alt={allImages[currentIndex].title}
+                                className="max-w-full max-h-full object-contain"
+                            />
+                            <div className="absolute bottom-4 left-0 right-0 text-center text-white bg-black/50 px-4 py-2 rounded">
+                                <h3 className="text-xl md:text-2xl font-medium">
+                                    {allImages[currentIndex].title}
+                                </h3>
+                                <p className="text-sm mt-1">{currentIndex + 1} / {allImages.length}</p>
+                            </div>
+                        </div>
+
+                        {/* Flecha derecha */}
+                        <button
+                            className="absolute right-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors md:right-8"
+                            onClick={goToNext}
+                            aria-label="Siguiente imagen"
+                        >
+                            &#8250;
+                        </button>
+                    </div>
+                </div>
+            )}
         </section>
     )
 }

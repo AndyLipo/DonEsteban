@@ -1,8 +1,9 @@
 export const poolTypes = [
-    { value: "indoor", label: "Desagote de pileta" },
-    { value: "outdoor", label: "Desagote de pozo" },
-    { value: "infinity", label: "Desagote industrial" },
-    { value: "lap", label: "Alquiler de Camiones" },
+    { value: "Desagote de pileta", label: "Desagote de pileta" },
+    { value: "Pozo septico", label: "Desagote de pozo" },
+    { value: "Desagote empresas", label: "Desagote empresas" },
+    { value: "Limpieza Asequias", label: "Limpieza Asequias" },
+    { value: "Plomeria", label: "Arreglos de plomeria" },
 ]
 
 export const formConfig = {

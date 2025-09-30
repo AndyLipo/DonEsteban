@@ -33,7 +33,7 @@ const ContactInputs = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     <FormInput
                         id="name"
-                        name="name"
+                        name="nombre"
                         label={config.fields.name.label}
                         placeholder={config.fields.name.placeholder}
                     />
@@ -59,7 +59,6 @@ const ContactInputs = ({
                 <FormCheckbox
                     id="terms"
                     name="terms"
-                    label="Estoy de acuerdo con los términos y condiciones"
                     required
                 />
 

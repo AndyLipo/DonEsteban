@@ -1,5 +1,6 @@
 import { CheckCircle, Wrench } from 'lucide-react';
-import Camion2 from '../../assets/camion-2.webp'
+import Flia from '../../assets/img-aboutflia.webp'
+
 const VisionSection = () => (
     <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
@@ -19,7 +20,7 @@ const ServiceCard = () => (
                     {/* <Wrench className="w-16 h-16 mx-auto mb-4 opacity-80" /> */}
                     <picture>
                         <source />
-                        <img src={Camion2} alt="camion-profesional" className="w-125 mx-auto opacity-80 rounded-2xl" />
+                        <img src={Flia} alt="camion-profesional" className="w-115 mx-auto opacity-80 rounded-2xl" />
 
                     </picture>
                 </div>

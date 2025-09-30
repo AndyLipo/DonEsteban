@@ -64,9 +64,10 @@ export default function RatedHome() {
                     </div>
 
                     {/* Layout para tablet y desktop: Posicionado en la parte blanca del SVG */}
-                    <div className="hidden sm:flex sm:absolute sm:bottom-6 md:-bottom-8 sm:right-6 md:right-30 lg:right-30 items-center gap-4">
+                    <div className="hidden sm:flex sm:absolute sm:bottom-6 md:-bottom-8 right-6 sm:right-6 md:right-30 lg:right-15 xl:right-30 2xl:right-30 items-center gap-4">
                         {/* Foto en la sección blanca */}
-                        <div className="relative w-[120px] h-[130px] md:w-[150px] md:h-[170px] rounded-lg md:rounded-xl overflow-hidden shadow-md">
+                        <div className="relative w-[120px] h-[130px] md:w-[150px] md:h-[170px] lg:w-[120px] lg:h-[175px] 
+                                      xl:w-[150px] xl:h-[170px] rounded-lg md:rounded-xl overflow-hidden shadow-md">
                             <img
                                 loading="lazy"
                                 src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg"

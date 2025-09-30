@@ -37,22 +37,22 @@ export const workConfig = {
     },
     gallery: [
         {
-            id: 1,
+            id: 3,
             title: "Desagote de sótanos inundados",
             img: Sotano,
         },
         {
-            id: 2,
+            id: 4,
             title: "Servicio de plomería 24 hs",
             img: Plomeria,
         },
         {
-            id: 3,
+            id: 5,
             title: "Limpieza de acequias y aguadas",
             img: Asequia,
         },
         {
-            id: 4,
+            id: 6,
             title: "Destapación de cámaras sépticas",
             img: Septica,
         },
