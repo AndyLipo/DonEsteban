@@ -2,7 +2,7 @@ import ImgAb from '../../assets/img-about.webp'
 export const aboutConfig = {
     image: {
         src: ImgAb,
-        alt: "Trabajador de Don Esteban Desagotes",
+        alt: "Trabajador de Don Esteban Atmosféricos",
         width: 600,
         height: 400
     },
@@ -10,7 +10,7 @@ export const aboutConfig = {
         welcomeTitle: {
             prefix: "Bienvenidos a ",
             highlight: "Don Esteban ",
-            suffix: "Desagotes."
+            suffix: "Atmosféricos."
         },
         mainTitle: {
             prefix: "La solución ",

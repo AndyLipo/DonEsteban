@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import Navbar from '@/Components/Navbar/Navbar'
 import HeroSection from '@/Components/Hero/HeroSection'
 import WhatssaAppBtn from '@/Components/WhatssAppBtn/WhatssAppBtn'
@@ -12,7 +11,7 @@ const HomeAdvanced = () => {
             </nav>
 
             <main className="space-y-14 md:space-y-32">
-                <section className="px-4 sm:px-6">
+                <section className="">
                     <HeroSection />
                 </section>
 

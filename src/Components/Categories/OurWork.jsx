@@ -6,18 +6,18 @@ import SpecializationHeader from "./SpecializationHeader"
 import WorkGallery from "./WorkGallery"
 
 const OurWork = () => {
-    const { header, services, specialization, gallery } = workConfig
+    const { header, services, specialization, gallery, carouselOnly } = workConfig
     const [carouselOpen, setCarouselOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Combinar todas las imágenes
-    const allImages = [...services, ...gallery];
+    // Combinar TODAS las imágenes: services + gallery + carouselOnly
+    const allImages = [...services, ...gallery, ...(carouselOnly || [])];
 
     const openCarousel = (index, source) => {
         if (source === 'services') {
-            setCurrentIndex(index); // Índices 0, 1
+            setCurrentIndex(index);
         } else if (source === 'gallery') {
-            setCurrentIndex(services.length + index); // Índices 2, 3, 4, 5
+            setCurrentIndex(services.length + index);
         }
         setCarouselOpen(true);
     };
@@ -93,7 +93,7 @@ const OurWork = () => {
                     >
                         {/* Botón cerrar */}
                         <button
-                            className="absolute top-4 right-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
+                            className="absolute top-4 right-4 text-white text-4xl z-10 cursor-pointer rounded-full p-2 transition-colors"
                             onClick={closeCarousel}
                             aria-label="Cerrar carrusel"
                         >
@@ -102,31 +102,42 @@ const OurWork = () => {
 
                         {/* Flecha izquierda */}
                         <button
-                            className="absolute left-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors md:left-8"
+                            className="absolute left-4 text-white text-5xl z-10 rounded-full p-2 transition-colors md:left-8 cursor-pointer"
                             onClick={goToPrevious}
                             aria-label="Imagen anterior"
                         >
                             &#8249;
                         </button>
 
-                        {/* Imagen */}
+                        {/* Imagen - Ahora incluye galería + carouselOnly */}
                         <div className="relative w-full h-full flex items-center justify-center">
-                            <img
+                            {/* <img
                                 src={allImages[currentIndex].img}
                                 alt={allImages[currentIndex].title}
                                 className="max-w-full max-h-full object-contain"
-                            />
-                            <div className="absolute bottom-4 left-0 right-0 text-center text-white bg-black/50 px-4 py-2 rounded">
-                                <h3 className="text-xl md:text-2xl font-medium">
-                                    {allImages[currentIndex].title}
-                                </h3>
-                                <p className="text-sm mt-1">{currentIndex + 1} / {allImages.length}</p>
-                            </div>
+                            /> */}
+                            {allImages[currentIndex].type === 'video' ? (
+                                <video
+                                    src={allImages[currentIndex].img}
+                                    className="max-w-full max-h-full object-contain"
+
+                                    autoPlay
+                                    loop
+                                >
+                                    Tu navegador no soporta el elemento de video.
+                                </video>
+                            ) : (
+                                <img
+                                    src={allImages[currentIndex].img}
+                                    alt={allImages[currentIndex].title}
+                                    className="max-w-full max-h-full object-contain"
+                                />
+                            )}
                         </div>
 
                         {/* Flecha derecha */}
                         <button
-                            className="absolute right-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors md:right-8"
+                            className="absolute right-4 text-white text-5xl z-10 rounded-full p-2 transition-colors md:right-8 cursor-pointer"
                             onClick={goToNext}
                             aria-label="Siguiente imagen"
                         >

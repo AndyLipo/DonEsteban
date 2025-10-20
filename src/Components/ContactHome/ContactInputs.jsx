@@ -55,16 +55,17 @@ const ContactInputs = ({
                     placeholder={config.fields.message.placeholder}
                     errors={state.errors}
                 />
+                <div className="flex flex-col items-center justify-center gap-4">
+                    <FormCheckbox
+                        id="terms"
+                        name="terms"
+                        required
+                    />
 
-                <FormCheckbox
-                    id="terms"
-                    name="terms"
-                    required
-                />
-
-                <SubmitButton
-                    isSubmitting={state.submitting}
-                />
+                    <SubmitButton
+                        isSubmitting={state.submitting}
+                    />
+                </div>
             </form>
         </div>
     )

@@ -1,25 +1,5 @@
-// import ServiceCard from "./ServiceCard"
-
 import { useEffect, useState } from "react";
 import { ServiceCard } from "./ServiceCard";
-
-// const ServicesGrid = ({
-//     services,
-//     className = ""
-// }) => {
-//     return (
-//         <div className={`grid md:grid-cols-2 gap-6 md:gap-8 mt-12 md:mt-16 lg:mt-24 ${className}`}>
-//             {services.map((service) => (
-//                 <ServiceCard
-//                     key={service.id}
-//                     service={service}
-//                 />
-//             ))}
-//         </div>
-//     )
-// }
-
-// export default ServicesGrid
 
 const ServicesGrid = ({ services, className = "" }) => {
     const [carouselOpen, setCarouselOpen] = useState(false);
@@ -88,7 +68,7 @@ const ServicesGrid = ({ services, className = "" }) => {
                     >
                         {/* Botón cerrar */}
                         <button
-                            className="absolute top-4 right-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
+                            className="absolute top-4 right-4 text-white text-3xl z-10 cursor-pointer rounded-full p-2 transition-colors"
                             onClick={closeCarousel}
                             aria-label="Cerrar carrusel"
                         >
@@ -97,7 +77,7 @@ const ServicesGrid = ({ services, className = "" }) => {
 
                         {/* Flecha izquierda */}
                         <button
-                            className="absolute left-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors md:left-8"
+                            className="absolute left-4 text-white text-3xl z-10 cursor-pointer rounded-full p-2 transition-colors md:left-8"
                             onClick={goToPrevious}
                             aria-label="Imagen anterior"
                         >
@@ -111,17 +91,11 @@ const ServicesGrid = ({ services, className = "" }) => {
                                 alt={services[currentIndex].title}
                                 className="max-w-full max-h-full object-contain"
                             />
-                            <div className="absolute bottom-4 left-0 right-0 text-center text-white bg-black/50 px-4 py-2 rounded">
-                                <h3 className="text-xl md:text-2xl font-medium">
-                                    {services[currentIndex].title}
-                                </h3>
-                                <p className="text-sm mt-1">{currentIndex + 1} / {services.length}</p>
-                            </div>
                         </div>
 
                         {/* Flecha derecha */}
                         <button
-                            className="absolute right-4 text-white text-3xl z-10 bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors md:right-8"
+                            className="absolute right-4 text-white text-3xl z-10 cursor-pointer rounded-full p-2  transition-colors md:right-8"
                             onClick={goToNext}
                             aria-label="Siguiente imagen"
                         >

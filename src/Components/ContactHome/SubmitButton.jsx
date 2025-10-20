@@ -11,7 +11,9 @@ const SubmitButton = ({
         <Button
             type="submit"
             disabled={isSubmitting}
-            className={`rounded-full py-5 px-8 w-26 h-12 ml-10 md:-ml-1 bg-gray-900 hover:bg-gray-800 group disabled:opacity-50 ${className}`}
+            className={`rounded-full flex sm:flex sm:justify-center py-5 w-56 h-12 
+              bg-gray-900 hover:bg-gray-800 active:bg-gray-800 
+              group disabled:opacity-50 ${className}`}
         >
             <span className="font-semibold text-white">
                 {isSubmitting ? loadingText : defaultText}
