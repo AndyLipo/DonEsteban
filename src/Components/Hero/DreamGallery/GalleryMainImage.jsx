@@ -8,6 +8,7 @@ const GalleryMainImage = ({ src, alt }) => {
                 className="rounded-2xl md:rounded-3xl"
                 width={600}
                 height={400}
+                priority={true} // 👈 mejora LCP
             />
         </div>
     )

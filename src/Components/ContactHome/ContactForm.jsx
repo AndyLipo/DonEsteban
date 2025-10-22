@@ -17,7 +17,8 @@ const ContactForm = () => {
     } = useContactForm(formConfig.id)
 
     return (
-        <div className="container mx-auto px-4 sm:px-6 py-12 max-w-7xl" id="contact-form">
+        <div className="container mx-auto px-4 sm:px-6 py-12 max-w-7xl min-h-[650px]"
+            id="contact-form">
             <BenefitsHeader />
 
             <Card className="rounded-3xl bg-gray-100 overflow-hidden">

@@ -1,5 +1,6 @@
-import CamionTrb from '../../../assets/camion-trabajo.webp'
-import Camion from '../../../assets/camion-costado.webp'
+import Camion from '../../../assets/camion-costado.webp?w=600;900;1200&format=webp;avif&as=srcset'
+import CamionTrb from '../../../assets/camion-trabajo.webp?w=600;900;1200&format=webp;avif&as=srcset'
+
 export const galleryConfig = {
     mainImage: {
         src: Camion,

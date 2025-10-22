@@ -19,11 +19,15 @@ const HeroSection = memo(() => {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
-                    poster="/assets/hero-poster.webp"
+                    preload="auto"
+                    poster="/DonEsteban/src/assets/HeroVideo.webm"
                     className="w-full h-auto rounded-b-2xl aspect-[16/9]"
                     fetchPriority="high"
-                />
+                    style={{ backgroundColor: "#f3f4f6" }} // fallback rápido mientras carga
+                >
+                    <source src={HeroVideo} type="video/webm" />
+                    Tu navegador no soporta video HTML5.
+                </video>
 
             </div>
         </section>
