@@ -1,6 +1,6 @@
 
 import { memo } from "react"
-import HeroVideo from '../../assets/HeroVideo.mp4'
+import HeroVideo from '../../assets/HeroVideo.webm'
 
 
 
@@ -13,11 +13,18 @@ const HeroSection = memo(() => {
             aria-labelledby="hero-heading"
         >
             <div className="space-y-4 ">
-                <video src={HeroVideo}
+                <video
+                    src={HeroVideo}
                     autoPlay
                     muted
                     loop
-                    className="w-full h-auto rounded-b-2xl"></video>
+                    playsInline
+                    preload="metadata"
+                    poster="/assets/hero-poster.webp"
+                    className="w-full h-auto rounded-b-2xl aspect-[16/9]"
+                    fetchPriority="high"
+                />
+
             </div>
         </section>
     )

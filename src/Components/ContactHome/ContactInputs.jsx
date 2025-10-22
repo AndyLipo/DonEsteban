@@ -84,7 +84,7 @@ const ContactInputs = ({
                 />
 
                 <div className="flex flex-col items-center justify-center gap-4">
-                    {/* <FormCheckbox ref={captchaRef} /> */}
+                    <FormCheckbox ref={captchaRef} />
 
                     <SubmitButton
                         isSubmitting={state.submitting}

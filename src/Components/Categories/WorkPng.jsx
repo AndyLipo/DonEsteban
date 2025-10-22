@@ -47,18 +47,15 @@ export default function WorkPng() {
                     </h3>
                     <p className="text-xs sm:text-sm lg:text-sm text-gray-900">
                         Cada trabajo es único. Especializados en obstrucciones, <br className="hidden lg:block" />
-                        <span className="lg:hidden">especializados en obstrucciones, </span>
                         desagotar pozos y <br className="hidden lg:block" />
-                        <span className="lg:hidden">desagotar pozos y </span>
-                        brindar plomería <br className="hidden lg:block" />
-                        <span className="lg:hidden">brindar plomería </span>
-                        urgente en <br />Zona Norte.
+                        brindar <br className="lg:block" />plomería <br className="hidden lg:block" />
+                        urgente en <br className="hidden sm:block" />Zona Norte.
                     </p>
                 </div>
 
                 {/* Botón negro con flecha */}
                 <div className="flex justify-end">
-                    <button className="w-12 h-12 sm:w-16 sm:h-16 lg:w-16 lg:h-16 bg-black rounded-full flex items-center justify-center hover:scale-105 transition-transform absolute top-50 right-10 sm:-bottom-4 sm:right-4 lg:-bottom-5 lg:right-2">
+                    <button className="w-12 h-12 sm:w-16 sm:h-16 lg:w-16 lg:h-16 bg-black rounded-full flex items-center justify-center hover:scale-105 transition-transform absolute top-50 right-22 sm:-bottom-4 sm:right-10 lg:-bottom-5 lg:right-2">
                         <ArrowRight className="text-[#F2FF59] w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                     </button>
                 </div>

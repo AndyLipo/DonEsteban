@@ -1,14 +1,18 @@
-const GalleryImage = ({ src, alt, className, ...props }) => {
+const GalleryMainImage = ({ src, alt }) => {
     return (
-        <img
-            loading="lazy"
-            src={src}
-            alt={alt}
-            className={`w-full h-auto object-cover ${className}`}
-            decoding="async"
-            {...props}
-        />
+        <div className="relative rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3]">
+            <img
+                src={src}
+                alt={alt}
+                width="600"
+                height="400"
+                decoding="async"
+                fetchPriority="high"   // 👈 prioridad máxima
+                loading="eager"        // 👈 evita lazy load
+                className="w-full h-full object-cover rounded-2xl md:rounded-3xl"
+            />
+        </div>
     )
 }
 
-export default GalleryImage
+export default GalleryMainImage

@@ -111,11 +111,6 @@ const OurWork = () => {
 
                         {/* Imagen - Ahora incluye galería + carouselOnly */}
                         <div className="relative w-full h-full flex items-center justify-center">
-                            {/* <img
-                                src={allImages[currentIndex].img}
-                                alt={allImages[currentIndex].title}
-                                className="max-w-full max-h-full object-contain"
-                            /> */}
                             {allImages[currentIndex].type === 'video' ? (
                                 <video
                                     src={allImages[currentIndex].img}

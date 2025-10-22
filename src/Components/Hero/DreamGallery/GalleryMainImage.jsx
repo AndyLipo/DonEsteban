@@ -6,8 +6,8 @@ const GalleryMainImage = ({ src, alt }) => {
                 src={src}
                 alt={alt}
                 className="rounded-2xl md:rounded-3xl"
-                width="600"
-                height="400"
+                width={600}
+                height={400}
             />
         </div>
     )
