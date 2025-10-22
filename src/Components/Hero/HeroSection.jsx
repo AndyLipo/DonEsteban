@@ -1,6 +1,6 @@
 
 import { memo } from "react"
-import HeroVideo from '../../assets/HeroVideos.mp4'
+import HeroVideo from '../../assets/HeroVideo.mp4'
 
 
 

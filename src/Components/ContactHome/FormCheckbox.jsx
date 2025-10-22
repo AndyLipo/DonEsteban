@@ -1,56 +1,47 @@
-// import { useRef } from "react";
-// import ReCAPTCHA from "react-google-recaptcha"
-
-// // const API_KEY = "6LeJQ64rAAAAAOG1wOQPa9fBgfnb0e0cxOJ4qB_M"
-
-// const FormCheckbox = () => {
-//     const captcha = useRef(null)
-//     const onChange = () => {
-//         if (captcha.current.getValue()) {
-//             // console.log("El usuario no es un robot");
-//             console.clear
-//         }
-
-//     }
-//     return (
-//         <div className={`flex items-start space-x-3`}>
-//             <ReCAPTCHA
-//                 ref={captcha}
-//                 className="mt-1 bg-white"
-//                 sitekey='6Ld2LbArAAAAAAHrZ6U-932opv0vWrQ_Q-vkFnrT'
-//                 onChange={onChange}
-
-//             />
-//         </div>
-//     )
-// }
-
-// export default FormCheckbox
-
-import { useRef } from "react";
+import { useRef, useState, forwardRef, useImperativeHandle } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const FormCheckbox = () => {
-    const captcha = useRef(null);
+const FormCheckbox = forwardRef((props, ref) => {
+    const captchaRef = useRef(null);
+    const [captchaToken, setCaptchaToken] = useState(null);
 
-    const onChange = () => {
-        if (captcha.current.getValue()) {
-            console.log("Captcha verificado");
-            // Aquí puedes habilitar el envío del formulario
-            console.clear
-
-        }
+    const onChange = (token) => {
+        console.log("Captcha completado");
+        setCaptchaToken(token);
     };
 
+    const onErrored = () => {
+        console.error("Error en el captcha");
+    };
+
+    const onExpired = () => {
+        console.log("Captcha expirado");
+        setCaptchaToken(null);
+    };
+
+    // Exponer métodos para que el componente padre pueda acceder
+    useImperativeHandle(ref, () => ({
+        getToken: () => captchaToken,
+        reset: () => {
+            captchaRef.current?.reset();
+            setCaptchaToken(null);
+        },
+        isValid: () => !!captchaToken
+    }));
+
     return (
-        <div className={`flex items-start space-x-3`}>
+        <div className="flex items-center justify-center">
             <ReCAPTCHA
-                ref={captcha}
-                sitekey='6Ld2LbArAAAAAAHrZ6U-932opv0vWrQ_Q-vkFnrT'
+                ref={captchaRef}
+                sitekey='6LeJQ64rAAAAAOG1wOQPa9fBgfnb0e0cxOJ4qB_M'
                 onChange={onChange}
+                onErrored={onErrored}
+                onExpired={onExpired}
             />
         </div>
     );
-};
+});
+
+FormCheckbox.displayName = 'FormCheckbox';
 
 export default FormCheckbox;

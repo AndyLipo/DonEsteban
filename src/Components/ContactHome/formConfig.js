@@ -1,4 +1,4 @@
-export const poolTypes = [
+export const motivo = [
     { value: "Desagote de pileta", label: "Desagote de pileta" },
     { value: "Pozo septico", label: "Desagote de pozo" },
     { value: "Desagote empresas", label: "Desagote empresas" },
@@ -13,7 +13,7 @@ export const formConfig = {
         motivo: {
             label: "Motivo de Consulta",
             placeholder: "Motivo de consulta",
-            options: poolTypes
+            options: motivo
         },
         name: {
             label: "Nombre",

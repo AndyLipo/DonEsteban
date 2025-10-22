@@ -17,11 +17,15 @@ const FormSelect = ({
 }) => {
     return (
         <div className={`space-y-2 ${className}`}>
-            <Label htmlFor={id} className="text-base md:text-lg">
+            <Label id={`${id}-label`} className="text-base md:text-lg">
                 {label}
             </Label>
             <Select name={name}>
-                <SelectTrigger className="h-14 md:h-16 bg-white w-full min-w-0">
+                <SelectTrigger
+                    id={id}
+                    aria-labelledby={`${id}-label`}
+                    className="h-14 md:h-16 bg-white w-full min-w-0"
+                >
                     <SelectValue placeholder={placeholder} />
                 </SelectTrigger>
                 <SelectContent>
@@ -32,6 +36,7 @@ const FormSelect = ({
                     ))}
                 </SelectContent>
             </Select>
+
         </div>
     )
 }

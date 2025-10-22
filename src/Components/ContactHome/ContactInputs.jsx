@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import FormSelect from "./FormSelect"
 import FormInput from "./FormInput"
 import FormTextarea from "./FormTextarea"
@@ -10,6 +11,32 @@ const ContactInputs = ({
     state,
     config
 }) => {
+    const captchaRef = useRef(null);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Validar captcha
+        if (!captchaRef.current?.isValid()) {
+            alert("Por favor completa el captcha");
+            return;
+        }
+
+        // Agregar el token de captcha al FormData
+        const formData = new FormData(e.target);
+        const captchaToken = captchaRef.current.getToken();
+        formData.append('g-recaptcha-response', captchaToken);
+
+        // Llamar a la función onSubmit original
+        try {
+            await onSubmit(e, captchaToken);
+            // Resetear captcha después de envío exitoso
+            captchaRef.current?.reset();
+        } catch (error) {
+            console.error('Error al enviar:', error);
+        }
+    };
+
     return (
         <div className="p-6 sm:p-8 md:p-12 lg:p-16 space-y-6">
             <h3 className="text-4xl sm:text-5xl md:text-6xl font-medium">
@@ -19,11 +46,11 @@ const ContactInputs = ({
 
             <form
                 className="space-y-4 md:space-y-6"
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit}
                 ref={formRef}
             >
                 <FormSelect
-                    id="pool-type"
+                    id="motivo"
                     name="motivo"
                     label={config.fields.motivo.label}
                     placeholder={config.fields.motivo.placeholder}
@@ -55,12 +82,9 @@ const ContactInputs = ({
                     placeholder={config.fields.message.placeholder}
                     errors={state.errors}
                 />
+
                 <div className="flex flex-col items-center justify-center gap-4">
-                    <FormCheckbox
-                        id="terms"
-                        name="terms"
-                        required
-                    />
+                    {/* <FormCheckbox ref={captchaRef} /> */}
 
                     <SubmitButton
                         isSubmitting={state.submitting}

@@ -1,4 +1,4 @@
-import LogoMobile from "../../assets/logo-ppal.webp"
+import LogoMobile from "../../assets/logo-ppal2.webp"
 import LogoGr from "../../assets/logoGr.webp"
 const LogoBtn = () => {
     return (
