@@ -46,7 +46,7 @@ export default function RatedHome() {
                         <div className="relative w-[120px] h-[130px] rounded-lg overflow-hidden shadow-md">
                             <img
                                 loading="lazy"
-                                src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg"
+                                src="https://plus.unsplash.com/premium_photo-1675674458649-0c667500f3cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000"
                                 alt="Juan Fernandez"
                                 className="w-full h-full object-cover"
                             />
@@ -55,10 +55,10 @@ export default function RatedHome() {
                         {/* Nombre y cargo */}
                         <div className="text-center">
                             <h4 className="text-2xl font-semibold leading-tight">
-                                Juan<br />Fernandez
+                                Andrés <br />González
                             </h4>
                             <p className="text-sm mt-1 text-neutral-700">
-                                Administrador de,<br /> Haras Santa Maria
+                                Vecnino de,<br /> Ing. Maschwitz
                             </p>
                         </div>
                     </div>
@@ -66,11 +66,11 @@ export default function RatedHome() {
                     {/* Layout para tablet y desktop: Posicionado en la parte blanca del SVG */}
                     <div className="hidden sm:flex sm:absolute sm:bottom-6 md:-bottom-8 right-6 sm:right-6 md:right-30 lg:right-15 xl:right-30 2xl:right-30 items-center gap-4">
                         {/* Foto en la sección blanca */}
-                        <div className="relative w-[120px] h-[130px] md:w-[150px] md:h-[170px] lg:w-[120px] lg:h-[175px] 
+                        <div className="relative w-[120px] h-[150px] md:w-[180px] md:h-[170px] lg:w-[120px] lg:h-[175px] 
                                       xl:w-[150px] xl:h-[170px] rounded-lg md:rounded-xl overflow-hidden shadow-md">
                             <img
                                 loading="lazy"
-                                src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg"
+                                src="https://plus.unsplash.com/premium_photo-1675674458649-0c667500f3cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=jpg&q=60&w=3000"
                                 alt="Juan Fernandez"
                                 className="w-full h-full object-cover"
                             />

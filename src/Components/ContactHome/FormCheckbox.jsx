@@ -33,7 +33,7 @@ const FormCheckbox = forwardRef((props, ref) => {
         <div className="flex items-center justify-center">
             <ReCAPTCHA
                 ref={captchaRef}
-                sitekey='6LeJQ64rAAAAAOG1wOQPa9fBgfnb0e0cxOJ4qB_M'
+                sitekey='6Ld2LbArAAAAAAHrZ6U-932opv0vWrQ_Q-vkFnrT'
                 onChange={onChange}
                 onErrored={onErrored}
                 onExpired={onExpired}

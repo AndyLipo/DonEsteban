@@ -9,7 +9,7 @@ export default function Navbar({
         { name: "Inicio", path: "/Inicio" },
         { name: "Sobre nosotros", path: "/About" },
         { name: "Contacto", path: "/Contacto" },
-        { name: "Solicitar Presupuesto", path: null },
+        { name: "Solicitar Presupuesto", path: '/#contact-form' },
     ],
 }) {
     const [menuOpen, setMenuOpen] = useState(false)

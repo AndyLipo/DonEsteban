@@ -1,42 +1,40 @@
 import { Label } from "@/components/ui/label"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 
 const FormSelect = ({
     id,
     name,
     label,
     placeholder,
-    options = [],
+    options,
+    errors = null,
     className = ""
 }) => {
+    const fieldErrors = errors && errors[name];
+
     return (
         <div className={`space-y-2 ${className}`}>
-            <Label id={`${id}-label`} className="text-base md:text-lg">
+            <Label htmlFor={id} className="text-base md:text-lg">
                 {label}
             </Label>
-            <Select name={name}>
-                <SelectTrigger
-                    id={id}
-                    aria-labelledby={`${id}-label`}
-                    className="h-14 md:h-16 bg-white w-full min-w-0"
-                >
-                    <SelectValue placeholder={placeholder} />
-                </SelectTrigger>
-                <SelectContent>
-                    {options.map((option) => (
-                        <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                        </SelectItem>
-                    ))}
-                </SelectContent>
-            </Select>
-
+            <select
+                id={id}
+                name={name}
+                className={`w-full h-10 px-3 bg-white border rounded-md focus-visible:ring-ring/50 focus-visible:ring-[3px] focus:border-transparent ${fieldErrors ? 'border-red-500' : 'border-gray-300'
+                    } focus:outline-none focus:ring-2 focus:border-transparent`}
+                defaultValue=""
+            >
+                <option value="" disabled>{placeholder}</option>
+                {options.map(option => (
+                    <option key={option.value} value={option.value}>
+                        {option.label}
+                    </option>
+                ))}
+            </select>
+            {fieldErrors && (
+                <p className="text-red-500 text-sm mt-1">
+                    {Array.isArray(fieldErrors) ? fieldErrors[0] : fieldErrors}
+                </p>
+            )}
         </div>
     )
 }

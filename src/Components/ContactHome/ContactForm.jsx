@@ -9,28 +9,40 @@ import ModalSuccess from './ModalSucces'
 const ContactForm = () => {
     const {
         state,
-        handleSubmit,
         showModal,
         formRef,
         resetForm,
-        closeModal
-    } = useContactForm(formConfig.id)
+        closeModal,
+        setSubmitting,
+        setSuccess,
+        setErrors
+    } = useContactForm()
 
     return (
-        <div className="container mx-auto px-4 sm:px-6 py-12 max-w-7xl min-h-[650px]"
-            id="contact-form">
-            <BenefitsHeader />
+        <section
+            id="contact-form"
+            className="mx-auto px-4 sm:px-6 py-12 md:py-20 bg-white text-black max-w-7xl"
+            aria-labelledby="contact-form-title"
+            style={{
+                contain: 'layout',
+                minHeight: 'min-content'
+            }}
+        >
+            <div style={{ minHeight: '180px' }}>
+                <BenefitsHeader />
+            </div>
 
-            <Card className="rounded-3xl bg-gray-100 overflow-hidden">
+            <Card className="rounded-3xl bg-gray-100">
                 <CardContent className="p-0">
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                         <ContactInputs
-                            onSubmit={handleSubmit}
                             formRef={formRef}
                             state={state}
                             config={formConfig}
+                            setSubmitting={setSubmitting}
+                            setSuccess={setSuccess}
+                            setErrors={setErrors}
                         />
-
                         <FormImage />
                     </div>
                 </CardContent>
@@ -46,8 +58,8 @@ const ContactForm = () => {
                 buttonText={formConfig.modal.buttonText}
                 onSuccess={resetForm}
             />
-        </div>
+        </section>
     )
 }
 
-export default ContactForm
+export default ContactForm;

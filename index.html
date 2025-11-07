@@ -2,74 +2,123 @@
 <html lang="es">
 
 <head>
-  <!-- Datos estructurados -->
-  <script type="application/ld+json">
-
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Don Esteban Desagotes",
-  "description": "Servicio de desagote confiable y rápido en Buenos Aires y alrededores.",
-  "url": "https://donestebanatmosfericos.com.ar/",
-  "telephone": "+54 9 11 3634-9494",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "La Plata 1775, Ingeniero Maschwitz, Escobar",
-    "addressLocality": "Escobar",
-    "addressRegion": "Buenos Aires",
-    "postalCode": "1623",
-    "addressCountry": "AR"
-  },
-  "openingHours": "Mo-Su 00:00-23:59",
-  "image": "https://donestebanatmosfericos.com.ar/assets/logoGr.webp",
-  "sameAs": [
-    "https://www.facebook.com/people/Atmosferico-Esteban/pfbid01FUTrKHPucEMajafgGB1vRJS4VPpyJtUbHmW8itS3PbvZTsEHKZ739uDyAVRrJU9l/",
-    "https://www.instagram.com/atmosfericos.donesteban/"
-  ]
-}
-
-  </script>
-
-  <!-- Meta tags SEO -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Preconnect crítico -->
+  <link rel="preconnect" href="https://www.google.com">
+  <link rel="dns-prefetch" href="https://www.google.com">
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+
+  <!-- Preload de imágenes LCP ESTRATÉGICO -->
+  <link rel="preload" href="/assets/camion-costado.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="/assets/camion-trabajo.webp" as="image" type="image/webp" fetchpriority="high">
+
+  <!-- Preload de fuentes -->
+  <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Meta tags SEO -->
   <meta name="description"
     content="Servicio rápido y confiable de desagote de piletas, atmosférico, pozos e industriales. Don Esteban Tu solución al instante.">
   <meta name="author" content="Don Esteban Atmosférico">
-
-  <!-- cambiar el tunel cuando lo haga hosting -->
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#ffffff">
-  <link rel="canonical" href="https://donestebandesagote.netlify.app/" />
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://donestebanatmosfericos.com.ar/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-  <!-- Íconos mover a public -->
-  <link rel="icon" type="image/webp" sizes="16x16" href="/logoGr.webp">
+  <!-- Íconos -->
   <link rel="icon" type="image/webp" sizes="32x32" href="/logoGr.webp">
   <link rel="apple-touch-icon" sizes="180x180" href="/logoGr.webp">
 
-  <!--Preeload imagenes-->
-  <link rel="preload" as="video" href="/DonEsteban/src/assets/HeroVideo.webm" type="video/webm" />
+  <!-- CSS Crítico Inline -->
+  <style>
+    /* Inter Fallback */
+    @font-face {
+      font-family: 'Inter Fallback';
+      src: local('Arial');
+      ascent-override: 90.20%;
+      descent-override: 22.48%;
+      line-gap-override: 0.00%;
+      size-adjust: 107.40%;
+      font-display: swap;
+    }
 
-  <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
+    /* Estilos críticos para prevenir CLS */
+    html {
+      font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
+      scroll-behavior: smooth;
+      font-display: swap;
+    }
 
-  <!--Fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-  </noscript>
+    /* Estilos base para prevenir FOUC */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
 
-  <!-- Título -->
+    #root {
+      min-height: 100vh;
+    }
+
+    /* Reservar espacio para imágenes LCP */
+    .lcp-image-container {
+      aspect-ratio: 1/1;
+      background-color: #f3f4f6;
+      position: relative;
+      overflow: hidden;
+    }
+  </style>
+
+  <!-- CSS No Crítico -->
+  <link rel="stylesheet" href="/fonts/inter.css" media="print" onload="this.media='all'">
+
+  <!-- Datos estructurados -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Don Esteban Desagotes",
+      "description": "Servicio de desagote confiable y rápido en Buenos Aires y alrededores.",
+      "url": "https://donestebanatmosfericos.com.ar/",
+      "telephone": "+54 9 11 3634-9494",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "La Plata 1775, Ingeniero Maschwitz, Escobar",
+        "addressLocality": "Escobar",
+        "addressRegion": "Buenos Aires",
+        "postalCode": "1623",
+        "addressCountry": "AR"
+      },
+      "openingHours": "Mo-Su 00:00-23:59",
+      "image": "https://donestebanatmosfericos.com.ar/logoGr.webp",
+      "sameAs": [
+        "https://www.facebook.com/people/Atmosferico-Esteban/pfbid01FUTrKHPucEMajafgGB1vRJS4VPpyJtUbHmW8itS3PbvZTsEHKZ739uDyAVRrJU9l/",
+        "https://www.instagram.com/atmosfericos.donesteban/"
+      ]
+    }
+  </script>
+
   <title>Don Esteban Atmosféricos | Servicio Rápido de Desagote en tu Zona</title>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Fallback para navegadores sin JS -->
+  <noscript>
+    <div style="text-align: center; padding: 2rem; font-family: Arial, sans-serif;">
+      <h1>Don Esteban Atmosféricos</h1>
+      <p>Servicio rápido y confiable de desagote de piletas, atmosférico, pozos e industriales.</p>
+      <p>Por favor, habilita JavaScript para ver el sitio completo.</p>
+      <p>Teléfono: +54 9 11 3634-9494</p>
+    </div>
+  </noscript>
 </body>
 
 </html>

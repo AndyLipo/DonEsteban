@@ -8,10 +8,15 @@ const AboutHome = () => {
 
     return (
         <section
-            className="container mx-auto px-4 sm:px-6 py-12 md:py-20 lg:py-24"
+            className="mx-auto px-4 sm:px-6 py-12 md:py-20 lg:py-24 bg-white text-black max-w-7xl"
             aria-labelledby="about-heading"
+            style={{
+                // 👇 CONTENCIÓN CRÍTICA para prevenir CLS
+                contain: 'layout style',
+                contentVisibility: 'auto'
+            }}
         >
-            <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 min-h-[500px]">
                 <AboutImage
                     src={image.src}
                     alt={image.alt}

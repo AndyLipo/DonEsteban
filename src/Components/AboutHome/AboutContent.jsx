@@ -10,9 +10,20 @@ const AboutContent = ({
     className = ""
 }) => {
     return (
-        <div className={`lg:w-1/2 flex flex-col justify-between space-y-8 md:space-y-12 ${className}`}>
-            {/* Títulos */}
-            <div className="space-y-4 md:space-y-6">
+        <div
+            className={`lg:w-1/2 flex flex-col justify-between space-y-8 md:space-y-12 ${className}`}
+            style={{
+                // 👇 CONTENCIÓN COMPLETA de toda la sección
+                contain: 'layout style',
+                minHeight: '600px', // 👈 Suma de: títulos(200) + desc(120) + CTA(100) + espacios
+                contentVisibility: 'auto'
+            }}
+        >
+            {/* Títulos - Con espacio reservado exacto */}
+            <div
+                className="space-y-4 md:space-y-6"
+                style={{ minHeight: '220px' }} // 👈 Título mediano + grande + espacios
+            >
                 <AboutTitle
                     prefix={welcomeTitle.prefix}
                     highlight={welcomeTitle.highlight}
@@ -28,14 +39,18 @@ const AboutContent = ({
                 />
             </div>
 
-            {/* Descripción */}
-            <AboutDescription text={description} />
+            {/* Descripción - Con espacio exacto */}
+            <div style={{ minHeight: '150px' }}> {/* 👈 Descripción + espacio negativo */}
+                <AboutDescription text={description} />
+            </div>
 
-            {/* CTA */}
-            <AboutCTA
-                text={cta.text}
-                route={cta.route}
-            />
+            {/* CTA - Con espacio exacto */}
+            <div style={{ minHeight: '100px' }}> {/* 👈 Botón + margin-bottom */}
+                <AboutCTA
+                    text={cta.text}
+                    route={cta.route}
+                />
+            </div>
         </div>
     )
 }

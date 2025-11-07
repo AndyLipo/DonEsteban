@@ -43,11 +43,10 @@ export default function WorkPng() {
             <CardContent className="relative z-10 p-6 sm:p-8 h-full flex flex-col">
                 <div className="flex-1 space-y-2 flex-grow ml-0 ">
                     <h3 className="text-lg sm:text-xl lg:text-xl font-semibold text-gray-900 leading-tight -mt-2 sm:-mt-10 lg:-mt-10">
-                        Servicios de desagote y destapaciones en Zona Norte
+                        Servicios de desagote y <br className="sm:block" />destapaciones en Zona Norte
                     </h3>
                     <p className="text-xs sm:text-sm lg:text-sm text-gray-900">
-                        Cada trabajo es único. Especializados en obstrucciones, <br className="hidden lg:block" />
-                        desagotar pozos y <br className="hidden lg:block" />
+                        Cada trabajo es único. Especializados en <br className="sm:block" /> obstrucciones, desagotar pozos y <br className="hidden lg:block" />
                         brindar <br className="lg:block" />plomería <br className="hidden lg:block" />
                         urgente en <br className="hidden sm:block" />Zona Norte.
                     </p>
@@ -55,7 +54,7 @@ export default function WorkPng() {
 
                 {/* Botón negro con flecha */}
                 <div className="flex justify-end">
-                    <button className="w-12 h-12 sm:w-16 sm:h-16 lg:w-16 lg:h-16 bg-black rounded-full flex items-center justify-center hover:scale-105 transition-transform absolute top-50 right-22 sm:-bottom-4 sm:right-10 lg:-bottom-5 lg:right-2">
+                    <button className="w-12 h-12 sm:w-16 sm:h-16 lg:w-16 lg:h-16 bg-black rounded-full flex items-center justify-center hover:scale-105 transition-transform absolute top-50 right-26 sm:-bottom-4 sm:right-10 lg:-bottom-5 lg:right-2">
                         <ArrowRight className="text-[#F2FF59] w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                     </button>
                 </div>

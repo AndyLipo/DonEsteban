@@ -1,6 +1,5 @@
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-import { ValidationError } from '@formspree/react'
 
 const FormInput = ({
     id,
@@ -11,6 +10,8 @@ const FormInput = ({
     errors = null,
     className = ""
 }) => {
+    const fieldErrors = errors && errors[name];
+
     return (
         <div className={`space-y-2 ${className}`}>
             <Label htmlFor={id} className="text-base md:text-lg">
@@ -21,14 +22,12 @@ const FormInput = ({
                 name={name}
                 type={type}
                 placeholder={placeholder}
-                className="h-10 md:h-10 bg-white"
+                className={`h-10 md:h-10 bg-white ${fieldErrors ? 'border-red-500' : ''}`}
             />
-            {errors && (
-                <ValidationError
-                    prefix={label}
-                    field={name}
-                    errors={errors}
-                />
+            {fieldErrors && (
+                <p className="text-red-500 text-sm mt-1">
+                    {Array.isArray(fieldErrors) ? fieldErrors[0] : fieldErrors}
+                </p>
             )}
         </div>
     )

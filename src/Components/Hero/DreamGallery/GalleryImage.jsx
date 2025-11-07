@@ -1,23 +1,30 @@
-const GalleryMainImage = ({ src, alt, className = "", width, height, priority = false }) => {
+const GalleryImage = ({
+    src,
+    alt,
+    className = "",
+    width = "600",
+    height = "400",
+    priority = false,
+    fetchPriority = "auto"
+}) => {
     return (
-        <div className="relative rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3]">
-            <picture>
-                {src?.sources?.map((source) => (
-                    <source key={source.srcset} srcSet={source.srcset} type={source.type} />
-                ))}
-                <img
-                    srcSet={src}
-                    alt={alt}
-                    width={width}
-                    height={height}
-                    decoding="async"
-                    loading={priority ? "eager" : "lazy"}
-                    fetchPriority={priority ? "high" : "auto"}
-                    className={`object-cover w-full h-auto ${className}`}
-                />
-            </picture>
-        </div>
+        <img
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={fetchPriority}
+            decoding={priority ? "sync" : "async"}
+            className={className}
+            style={{
+                aspectRatio: `${width} / ${height}`,
+                objectFit: 'cover',
+                maxWidth: '100%',
+                height: 'auto'
+            }}
+        />
     )
 }
 
-export default GalleryMainImage
+export default GalleryImage

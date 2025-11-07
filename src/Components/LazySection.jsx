@@ -4,27 +4,44 @@ import { useIntersectionObserver } from './IntersectionObserver';
 const LazySection = ({
     importFunc,
     fallbackHeight = "h-64",
-    className = "px-4 sm:px-6",
+    className = "",
     children,
-    prefetch = false, // <- Nuevo prop opcional
+    prefetch = false,
+    id,
     ...props
 }) => {
     const [ref, hasIntersected] = useIntersectionObserver();
     const [hasLoaded, setHasLoaded] = useState(false);
     const [LazyComponent, setLazyComponent] = useState(null);
 
-    // Prefetch en background apenas monta si prefetch = true
+    // Alturas específicas por sección (para evitar CLS)
+    const getMinHeight = () => {
+        switch (id) {
+            case 'contact-form':
+                return 'min-content';
+            case 'gallery':
+                return '600px';
+            case 'map':
+                return '450px';
+            default:
+                return undefined;
+        }
+    };
+
+    const minHeight = getMinHeight();
+
+    // Prefetch en background apenas monta
     useEffect(() => {
         if (prefetch) {
             importFunc().then((mod) => {
-                // Guardamos en cache
-                setLazyComponent(() => () => mod.default);
+                // ✅ CORREGIDO: no envolvemos en una función
+                setLazyComponent(() => mod.default);
                 setHasLoaded(true);
             });
         }
     }, [prefetch, importFunc]);
 
-    // Lazy load cuando entra al viewport por primera vez
+    // Lazy load cuando entra al viewport
     useEffect(() => {
         if (hasIntersected && !hasLoaded) {
             const Component = lazy(importFunc);
@@ -34,11 +51,28 @@ const LazySection = ({
     }, [hasIntersected, hasLoaded, importFunc]);
 
     return (
-        <section ref={ref} className={className} {...props}>
+        <section
+            ref={ref}
+            className={className}
+            id={id}
+            style={{
+                minHeight,
+                height: minHeight, // evita que cambie la altura al cargarse
+                overflow: "hidden",
+                display: "block",
+            }}
+            {...props}
+        >
             {LazyComponent ? (
                 <Suspense
                     fallback={
-                        <div className={`${fallbackHeight} animate-pulse bg-gray-100 rounded-lg`}>
+                        <div
+                            className={`${fallbackHeight} animate-pulse bg-gray-100 rounded-lg`}
+                            style={{
+                                minHeight,
+                                height: minHeight,
+                            }}
+                        >
                             <div className="flex items-center justify-center h-full">
                                 <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
                             </div>
@@ -48,7 +82,13 @@ const LazySection = ({
                     <LazyComponent />
                 </Suspense>
             ) : (
-                <div className={`${fallbackHeight} bg-transparent`} />
+                <div
+                    className={`${fallbackHeight} bg-transparent`}
+                    style={{
+                        minHeight,
+                        height: minHeight,
+                    }}
+                />
             )}
             {children}
         </section>

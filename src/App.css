@@ -1,9 +1,23 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-* {
-    font-display: swap !important;
+/* ===== OPTIMIZACIÓN DE FUENTES ===== */
+/* ELIMINA TODO el bloque anterior de fuentes y usa solo esto: */
+html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+    background-color: #fff;
+    color: #000;
+    font-display: swap;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
 
 
 .hero-content {
@@ -12,7 +26,6 @@
 }
 
 .hero-heading {
-    font-display: swap;
     text-rendering: optimizeSpeed;
 }
 
@@ -21,98 +34,5 @@
     .hero-heading,
     .hero-description {
         transition: none !important;
-    }
-}
-
-.depth-image {
-    /* Sombra suave para elevar la imagen */
-    box-shadow:
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-
-    /* Transición suave para hover */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* Filtro para hacer más nítida la imagen principal */
-    filter: contrast(1.05) saturate(1.1) brightness(1.02);
-}
-
-.depth-image:hover {
-    /* Efecto hover para mayor interactividad */
-    transform: translateY(-2px);
-    box-shadow:
-        0 25px 50px -12px rgba(0, 0, 0, 0.15),
-        0 15px 25px -5px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(255, 255, 255, 0.2);
-}
-
-/* Versión alternativa con backdrop-filter para navegadores compatibles */
-.depth-image-advanced {
-    backdrop-filter: blur(0px);
-    box-shadow:
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-    /* Gradiente sutil en el borde para simular profundidad */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-}
-
-.depth-image-advanced::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
-}
-
-/* Efecto de enfoque selectivo usando CSS */
-.selective-focus {
-    position: relative;
-    overflow: hidden;
-}
-
-.selective-focus::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 60% 50% at center,
-            transparent 30%,
-            rgba(255, 255, 255, 0.03) 70%,
-            rgba(0, 0, 0, 0.05) 100%);
-    pointer-events: none;
-    border-radius: inherit;
-}
-
-/* Animación sutil de respiración para dar vida */
-@keyframes gentle-float {
-
-    0%,
-    100% {
-        transform: translateY(0px) scale(1);
-    }
-
-    50% {
-        transform: translateY(-3px) scale(1.002);
-    }
-}
-
-.depth-image-floating {
-    animation: gentle-float 6s ease-in-out infinite;
-}
-
-/* Media queries para diferentes tamaños */
-@media (max-width: 768px) {
-    .depth-image {
-        box-shadow:
-            0 10px 15px -3px rgba(0, 0, 0, 0.1),
-            0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
 }

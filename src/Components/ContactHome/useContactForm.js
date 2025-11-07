@@ -1,33 +1,48 @@
-import { useForm } from '@formspree/react'
-import { useEffect, useState, useRef } from 'react'
+import { useState, useRef } from "react";
 
-export const useContactForm = (formId) => {
-    const [state, handleSubmit] = useForm(formId)
-    const [showModal, setShowModal] = useState(false)
-    const formRef = useRef(null)
+export const useContactForm = () => {
+    const [state, setState] = useState({
+        submitting: false,
+        succeeded: false,
+        errors: {},
+    });
 
-    useEffect(() => {
-        if (state.succeeded) {
-            setShowModal(true)
-        }
-    }, [state.succeeded])
+    const [showModal, setShowModal] = useState(false);
+    const formRef = useRef(null);
 
     const resetForm = () => {
-        if (formRef.current) {
-            formRef.current.reset()
-        }
-    }
+        if (formRef.current) formRef.current.reset();
+        setState({
+            submitting: false,
+            succeeded: false,
+            errors: {},
+        });
+    };
 
     const closeModal = () => {
-        setShowModal(false)
-    }
+        setShowModal(false);
+        resetForm();
+    };
+
+    const setSubmitting = (submitting) =>
+        setState((prev) => ({ ...prev, submitting }));
+
+    const setSuccess = () => {
+        setState((prev) => ({ ...prev, succeeded: true, submitting: false }));
+        setShowModal(true);
+    };
+
+    const setErrors = (errors) =>
+        setState((prev) => ({ ...prev, errors }));
 
     return {
         state,
-        handleSubmit,
         showModal,
         formRef,
         resetForm,
-        closeModal
-    }
-}
+        closeModal,
+        setSubmitting,
+        setSuccess,
+        setErrors,
+    };
+};

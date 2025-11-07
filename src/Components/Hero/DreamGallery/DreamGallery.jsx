@@ -1,10 +1,10 @@
-import { galleryConfig } from "./GalleryConfig"
-import GalleryMainImage from "./GalleryMainImage"
-import GallerySecondaryImage from "./GallerySecondaryImage"
-import GalleryTitle from "./GalleryTitle"
+import { galleryConfig } from "./GalleryConfig";
+import GalleryMainImage from "./GalleryMainImage";
+import GallerySecondaryImage from "./GallerySecondaryImage";
+import GalleryTitle from "./GalleryTitle";
 
 const DreamGallery = () => {
-    const { mainImage, secondaryImage, actionButton, title } = galleryConfig
+    const { mainImage, secondaryImage, actionButton, title } = galleryConfig;
 
     return (
         <section
@@ -12,11 +12,7 @@ const DreamGallery = () => {
             aria-labelledby="gallery-title"
         >
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                <GalleryMainImage
-                    src={mainImage.src}
-                    alt={mainImage.alt}
-                />
-
+                <GalleryMainImage src={mainImage.src} alt={mainImage.alt} />
                 <GallerySecondaryImage
                     src={secondaryImage.src}
                     alt={secondaryImage.alt}
@@ -24,13 +20,9 @@ const DreamGallery = () => {
                     buttonLabel={actionButton.label}
                 />
             </div>
-
-            <GalleryTitle
-                title={title.main}
-                highlightedText={title.highlighted}
-            />
+            <GalleryTitle title={title.main} highlightedText={title.highlighted} />
         </section>
-    )
-}
+    );
+};
 
-export default DreamGallery
+export default DreamGallery;

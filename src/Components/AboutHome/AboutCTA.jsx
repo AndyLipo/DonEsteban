@@ -15,12 +15,24 @@ const AboutCTA = ({
     }
 
     return (
-        <div className={className}>
+        <div
+            className={className}
+            style={{
+                // 👇 ALTURA FIJA para el botón + margen
+                minHeight: '100px', // py-3 (24px) + mb-20 (80px) = ~104px
+                contain: 'layout style'
+            }}
+        >
             <Button
                 variant={variant}
                 className="rounded-full py-3 px-6 md:py-6 md:px-8 bg-gray-100 hover:bg-gray-200 group w-fit transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#2469a0] focus:ring-offset-2 mb-20"
                 onClick={handleClick}
                 aria-label={`Ir a ${text.toLowerCase()}`}
+                style={{
+                    // 👇 Botón con dimensiones estables
+                    minHeight: '48px',
+                    minWidth: '140px'
+                }}
             >
                 <span className="font-semibold text-lg">{text}</span>
                 <ArrowRight

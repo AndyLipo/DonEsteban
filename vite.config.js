@@ -1,5 +1,4 @@
 import { defineConfig } from "vite"
-import { imagetools } from "vite-imagetools"
 import react from "@vitejs/plugin-react-swc"
 import tailwindcss from "@tailwindcss/vite"
 import path from "path"
@@ -9,7 +8,6 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    imagetools() // compresión y resizing automático de imágenes
   ],
   resolve: {
     alias: {
@@ -20,75 +18,91 @@ export default defineConfig({
   build: {
     target: "esnext",
     cssCodeSplit: true,
-    reportCompressedSize: true,
-    brotliSize: true,
+    reportCompressedSize: false,
     sourcemap: false,
     minify: "terser",
+    assetsInlineLimit: 4096,
 
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
       },
       format: {
         comments: false,
       },
     },
 
-    // Mejorar tree-shaking y optimización de chunks
     rollupOptions: {
       output: {
         manualChunks: {
           // React core
           "react-vendor": ["react", "react-dom"],
 
-          // UI libraries
-          "ui-vendor": [
+          // UI libraries - Radix separado por uso
+          "radix-core": [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-slot",
+          ],
+          "radix-forms": [
             "@radix-ui/react-select",
-            "@radix-ui/react-navigation-menu",
             "@radix-ui/react-checkbox",
+            "@radix-ui/react-label",
+          ],
+          "radix-layout": [
+            "@radix-ui/react-navigation-menu",
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-separator",
           ],
 
           // Icons
           "icons": ["lucide-react"],
 
           // Router
-          "router": ["react-router", "react-router-dom"],
-
-          // Forms
-          "forms": ["@formspree/react"],
+          "router": ["react-router-dom"],
 
           // Utilities
-          "utils": ["tailwind-merge", "class-variance-authority"],
+          "utils": ["tailwind-merge", "class-variance-authority", "clsx"],
+        },
+
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'assets/[name]-[hash][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
         },
       },
     },
 
-    // Reducir límite de warnings para chunks grandes
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500,
   },
 
   esbuild: {
-    drop: ["console", "debugger"], // elimina logs también del prebundle
+    drop: ["console", "debugger"],
+    legalComments: 'none',
   },
 
-  // Optimizaciones para desarrollo
-  server: {
-    fs: {
-      allow: [".."],
-    },
-  },
-
-  // Pre-bundling selectivo
   optimizeDeps: {
     include: [
       "react",
       "react-dom",
-      "react-router",
       "react-router-dom",
       "lucide-react",
-      "@formspree/react",
+      "react-hook-form", // Solo mantener react-hook-form si lo usas
     ],
     exclude: [],
+  },
+
+  css: {
+    devSourcemap: false,
+  },
+
+  server: {
+    fs: {
+      allow: [".."],
+    },
   },
 })

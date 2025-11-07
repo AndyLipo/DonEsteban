@@ -1,14 +1,23 @@
-import Camion from '../../../assets/camion-costado.webp?w=600;900;1200&format=webp;avif&as=srcset'
-import CamionTrb from '../../../assets/camion-trabajo.webp?w=600;900;1200&format=webp;avif&as=srcset'
+// Rutas directas sin imports
+const Camion = '/assets/camion-costado.webp'
+const CamionTrb = '/assets/camion-trabajo.webp'
 
 export const galleryConfig = {
     mainImage: {
-        src: Camion,
-        alt: "Servicio de desagote profesional - Don Esteban"
+        src: CamionTrb, // 👈 Esta es la imagen LCP principal
+        alt: "Camión especializado en desagotes y limpieza - Don Esteban",
+        width: "600",
+        height: "400",
+        priority: true, // 👈 Para que cargue primero
+        fetchPriority: "high"
     },
     secondaryImage: {
-        src: CamionTrb,
-        alt: "Camión especializado en desagotes y limpieza"
+        src: Camion,
+        alt: "Servicio de desagote profesional - Don Esteban",
+        width: "600",
+        height: "400",
+        priority: false,
+        fetchPriority: "auto"
     },
     actionButton: {
         to: "/about",
