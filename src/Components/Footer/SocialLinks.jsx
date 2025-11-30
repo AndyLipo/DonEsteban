@@ -8,7 +8,7 @@ const SocialLinks = ({
     const defaultSocial = {
         facebook: "https://www.facebook.com/people/Atmosferico-Esteban/pfbid01FUTrKHPucEMajafgGB1vRJS4VPpyJtUbHmW8itS3PbvZTsEHKZ739uDyAVRrJU9l/?name=xhp_nt__fb__action__open_user",
         instagram: "https://www.instagram.com/atmosfericos.donesteban/?igsh=MTRseWpxcnNtcnlscg%3D%3D#",
-        linkedin: "#"
+
     }
 
     const social = { ...defaultSocial, ...socialMedia }
@@ -20,25 +20,21 @@ const SocialLinks = ({
                     href={social.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#8be27e] transition-colors"
+                    className="hover:text-[#246416] transition-colors"
+                    aria-label="Visitar nuestra página de Facebook"
+
                 >
-                    <Facebook className="size-7" />
+                    <Facebook className="size-7" aria-hidden="true" />
                 </a>
                 <a
                     href={social.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#8be27e] transition-colors"
+                    className="hover:text-[#246416] transition-colors"
+                    aria-label="Visitar nuestro Perfil de Instagram"
+
                 >
-                    <Instagram className="size-7" />
-                </a>
-                <a
-                    href={social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#8be27e] transition-colors"
-                >
-                    <Linkedin className="size-7" />
+                    <Instagram className="size-7" aria-hidden="true" />
                 </a>
             </div>
         </div>

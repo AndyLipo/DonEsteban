@@ -1,38 +1,56 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* ===== OPTIMIZACIÓN DE FUENTES ===== */
-/* ELIMINA TODO el bloque anterior de fuentes y usa solo esto: */
+/* ===== FUENTES BASE ===== */
 html {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     scroll-behavior: smooth;
-    background-color: #fff;
-    color: #000;
-    font-display: swap;
 }
 
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-
 }
 
-
-
-.hero-content {
-    contain: layout style;
-    transform: translateZ(0);
+/* ===== ANTI-CLS: Formulario de contacto ===== */
+#contact-form {
+    min-height: 900px;
+    contain: layout style paint;
 }
 
-.hero-heading {
-    text-rendering: optimizeSpeed;
+/* ===== SKELETON LOADER ===== */
+.skeleton {
+    animation: skeleton-loading 1.5s infinite ease-in-out;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
 }
 
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ===== OPTIMIZACIONES DE RENDIMIENTO ===== */
 @media (prefers-reduced-motion: reduce) {
 
-    .hero-heading,
-    .hero-description {
-        transition: none !important;
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
+}
+
+/* ===== MEJORAS DE SCROLL ===== */
+.scroll-container {
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 }

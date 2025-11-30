@@ -1,15 +1,29 @@
-import LogoMobile from "../../assets/logo-ppal2.webp"
-import LogoGr from "../../assets/logoGr.webp"
+import LogoLarge from "../../assets/logo-ppal2.webp";
+import LogoSmall from "../../assets/logoGr.webp";
+
 const LogoBtn = () => {
     return (
-        <>
-            <picture className="">
-                <source srcSet={LogoMobile} alt="Logo-mobile-img" media='(min-width: 640px)' />
-                <source srcSet={LogoGr} alt="Logo-img" />
-                <img src={LogoGr} alt="Logo-img" className="sm:h-26 sm:w-33 size-12" loading="lazy" />
-            </picture>
-        </>
-    )
-}
+        <picture>
+            {/* 🖥 Logo para pantallas grandes */}
+            <source
+                srcSet={LogoLarge}
+                media="(min-width: 640px)"
+                width="132"
+                height="80"
+            />
 
-export default LogoBtn
+            {/* 📱 Logo para pantallas chicas (y fallback) */}
+            <img
+                src={LogoSmall}
+                srcSet={`${LogoSmall} 1x, ${LogoLarge} 2x`}
+                alt="Don Esteban Atmosféricos"
+                width="48"   // tamaño real del logo chico
+                height="48"
+                className="h-12 sm:h-16 w-auto mx-auto"
+                decoding="async" // mejor que lazy en logo
+            />
+        </picture>
+    );
+};
+
+export default LogoBtn;

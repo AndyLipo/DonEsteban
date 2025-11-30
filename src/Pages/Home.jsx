@@ -15,10 +15,10 @@ const HomeAdvanced = () => {
                     <HeroSection />
                 </section>
 
-                <LazySection importFunc={() => import('@/Components/Hero/DreamGallery/DreamGallery')} fallbackHeight="h-64" />
+                <LazySection importFunc={() => import('@/Components/Hero/DreamGallery/DreamGallery')} fallbackHeight="h-94" />
                 <LazySection importFunc={() => import('@/Components/ContactHome/ContactForm')} prefetch priority="high"  // 👈 Nuevo prop
                     id="contact-form"
-
+                    minHeight="900px" // 👈 Ajusta según tu formulario
                 />
                 <LazySection importFunc={() => import('@/Components/AboutHome/AboutHome')} />
                 <LazySection importFunc={() => import('@/Components/AboutHome/TrustSupport')} />

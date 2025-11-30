@@ -6,7 +6,7 @@ import Plomeria from '../../assets/plomeria.webp'
 import Asequia from '../../assets/asequia.webp'
 import Septica from '../../assets/desagote-septica.webp'
 import Camion from '../../assets/GaleriaCamion.webp'
-const Camion2 = '/assets/camion2.webp'
+import Camion2 from '../../assets/camion2.webp'
 import Camion3 from '../../assets/GaleriaCamion3.webp'
 import Camion4 from '../../assets/GaleriaCamion4.webp'
 import Nocturno from '../../assets/GaleriaNocturno.webp'
@@ -71,72 +71,66 @@ export const workConfig = {
         {
             id: 7,
             title: "Tu nueva imagen 1",
-            type: 'video',
+            type: 'image',
             img: Camion, // Reemplaza con la imagen que quieras
 
         },
         {
             id: 8,
             title: "Tu nueva imagen 2",
-            type: 'video',
-            img: Camion,// Reemplaza con la imagen que quieras
-        },
-        {
-            id: 8,
-            title: "Tu nueva imagen 2",
-            type: 'video',
+            type: 'image',
             img: Camion2,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 9,
             title: "Tu nueva imagen 2",
-            type: 'video',
+            type: 'image',
             img: Camion3,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 10,
             title: "Tu nueva imagen 2",
-            type: 'video',
+            type: 'image',
             img: Camion4,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 11,
             title: "Tu nueva imagen 2",
-            type: 'video',
+            type: 'image',
             img: Nocturno,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 12,
             title: "Tu nueva imagen 2",
-            type: 'video',
+            type: 'image',
             img: Cliente,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 13,
             title: "Tu nueva imagen 2",
-            type: 'video',
+            type: 'image',
             img: Tanque,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 14,
             title: "Tu nueva imagen 2",
-            type: 'video',
+            type: 'image',
             img: Tanque2,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 15,
             title: "Tu nueva imagen 2",
             type: 'video',
             img: GV1,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 16,
             title: "Tu nueva imagen 2",
             type: 'video',
             img: GV2,// Reemplaza con la imagen que quieras
         },
         {
-            id: 8,
+            id: 17,
             title: "Tu nueva imagen 2",
             type: 'video',
             img: GV3,// Reemplaza con la imagen que quieras

@@ -39,60 +39,59 @@ export default function Navbar({
     }
 
     return (
-        <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white/70">
-            <div className="flex items-center justify-between px-3 py-2 sm:px-6">
-                <NavLink to="/" end className="flex-shrink-0">
-                    <LogoBtn />
-                </NavLink>
+        <header className="fixed top-0 left-0 z-50 w-full bg-white/40 backdrop-blur-md shadow-sm">
+            <div className="container mx-auto">
+                <div className="flex items-center justify-between px-3 py-3 sm:px-6">
+                    {/* Logo */}
+                    <NavLink to="/" end className="flex-shrink-0 z-10" aria-label="Ir a inicio">
+                        <LogoBtn />
+                    </NavLink>
 
-                <nav className="hidden md:flex md:items-center md:space-x-8 hover:opacity-80 transition-opacity">
-                    <FooterNavigation
-                        links={navLinks}
-                        onNavClick={handleNavClick}
-                    />
-                </nav>
+                    {/* Desktop Navigation - Oculto en mobile, centrado en desktop */}
+                    <nav className="hidden md:flex md:items-center md:flex-1 md:justify-center md:ml-8">
+                        <FooterNavigation
+                            links={navLinks}
+                            onNavClick={handleNavClick}
+                            isMobile={false}
+                        />
+                    </nav>
 
-                <div className="md:hidden">
-                    <button
-                        onClick={toggleMenu}
-                        className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-                        aria-label={menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-                        aria-expanded={menuOpen}
-                        aria-controls="mobile-menu"
-                        type="button"
-                    >
-                        {menuOpen ? (
-                            <X size={24} aria-hidden="true" />
-                        ) : (
-                            <Menu size={24} aria-hidden="true" />
-                        )}
-                    </button>
+                    {/* Hamburger Button - Solo visible en mobile */}
+                    <div className="md:hidden z-10">
+                        <button
+                            onClick={toggleMenu}
+                            className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                            aria-label={menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+                            aria-expanded={menuOpen}
+                            aria-controls="mobile-menu"
+                            type="button"
+                        >
+                            {menuOpen ? (
+                                <X size={24} className="text-gray-700" aria-hidden="true" />
+                            ) : (
+                                <Menu size={24} className="text-gray-700" aria-hidden="true" />
+                            )}
+                        </button>
+                    </div>
+
+                    {/* Spacer para mantener hamburguesa a la derecha en desktop */}
+                    <div className="hidden md:block w-10"></div>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Solo visible cuando menuOpen es true Y en mobile */}
             {menuOpen && (
-                <div className="md:hidden bg-white border-t text-center space-y-4 py-6 text-sm font-medium animate__animated animate__fadeIn">
-                    {navLinks.map((link) => (
-                        link.name === "Solicite Presupuesto" ? (
-                            <button
-                                key={link.name}
-                                onClick={handleScrollToForm}
-                                className="block w-full text-center hover:opacity-80 transition-opacity py-2"
-                            >
-                                {link.name}
-                            </button>
-                        ) : (
-                            <NavLink
-                                key={link.name}
-                                to={link.path}
-                                className="block hover:opacity-80 transition-opacity py-2"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                {link.name}
-                            </NavLink>
-                        )
-                    ))}
+                <div
+                    id="mobile-menu"
+                    className="md:hidden bg-white border-t border-gray-200 animate__animated animate__fadeIn"
+                >
+                    <nav className="py-4 px-4">
+                        <FooterNavigation
+                            links={navLinks}
+                            onNavClick={handleNavClick}
+                            isMobile={true}
+                        />
+                    </nav>
                 </div>
             )}
         </header>

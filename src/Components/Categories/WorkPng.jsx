@@ -54,7 +54,9 @@ export default function WorkPng() {
 
                 {/* Botón negro con flecha */}
                 <div className="flex justify-end">
-                    <button className="w-12 h-12 sm:w-16 sm:h-16 lg:w-16 lg:h-16 bg-black rounded-full flex items-center justify-center hover:scale-105 transition-transform absolute top-50 right-26 sm:-bottom-4 sm:right-10 lg:-bottom-5 lg:right-2">
+                    <button
+                        aria-label="mostrar carrousel"
+                        className="w-12 h-12 sm:w-16 sm:h-16 lg:w-16 lg:h-16 bg-black rounded-full flex items-center justify-center hover:scale-105 transition-transform absolute top-50 right-26 sm:-bottom-4 sm:right-10 lg:-bottom-5 lg:right-2">
                         <ArrowRight className="text-[#F2FF59] w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                     </button>
                 </div>

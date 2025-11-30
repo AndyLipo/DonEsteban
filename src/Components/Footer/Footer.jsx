@@ -48,7 +48,7 @@ export default function Footer({
 
             {/* Botón scroll to top */}
             {showScrollButton && (
-                <ScrollToTopButton className="flex mt-2 ml-80 sm:ml-20" />
+                <ScrollToTopButton className="flex mt-2 ml-50 sm:ml-30 md:ml-80 lg:ml-80" />
             )}
 
             {/* Footer bottom */}

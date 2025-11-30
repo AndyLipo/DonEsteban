@@ -1,97 +1,39 @@
-import { Suspense, lazy, useState, useEffect } from 'react';
-import { useIntersectionObserver } from './IntersectionObserver';
+import { Suspense, lazy } from 'react';
 
-const LazySection = ({
-    importFunc,
-    fallbackHeight = "h-64",
-    className = "",
-    children,
-    prefetch = false,
-    id,
-    ...props
-}) => {
-    const [ref, hasIntersected] = useIntersectionObserver();
-    const [hasLoaded, setHasLoaded] = useState(false);
-    const [LazyComponent, setLazyComponent] = useState(null);
+/**
+ * Componente para cargar secciones lazy con placeholder
+ * Evita CLS reservando espacio antes de cargar
+ */
+const LazySection = ({ importFunc, id = '' }) => {
+    const Component = lazy(importFunc);
 
-    // Alturas específicas por sección (para evitar CLS)
-    const getMinHeight = () => {
-        switch (id) {
-            case 'contact-form':
-                return 'min-content';
-            case 'gallery':
-                return '600px';
-            case 'map':
-                return '450px';
-            default:
-                return undefined;
-        }
-    };
-
-    const minHeight = getMinHeight();
-
-    // Prefetch en background apenas monta
-    useEffect(() => {
-        if (prefetch) {
-            importFunc().then((mod) => {
-                // ✅ CORREGIDO: no envolvemos en una función
-                setLazyComponent(() => mod.default);
-                setHasLoaded(true);
-            });
-        }
-    }, [prefetch, importFunc]);
-
-    // Lazy load cuando entra al viewport
-    useEffect(() => {
-        if (hasIntersected && !hasLoaded) {
-            const Component = lazy(importFunc);
-            setLazyComponent(() => Component);
-            setHasLoaded(true);
-        }
-    }, [hasIntersected, hasLoaded, importFunc]);
-
-    return (
-        <section
-            ref={ref}
-            className={className}
+    // Placeholder mientras carga (reserva espacio para evitar CLS)
+    const Placeholder = () => (
+        <div
             id={id}
             style={{
-                minHeight,
-                height: minHeight, // evita que cambie la altura al cargarse
-                overflow: "hidden",
-                display: "block",
+                minHeight: '900px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#ffffff',
+                contain: 'layout style paint'
             }}
-            {...props}
+            aria-busy="true"
+            aria-live="polite"
         >
-            {LazyComponent ? (
-                <Suspense
-                    fallback={
-                        <div
-                            className={`${fallbackHeight} animate-pulse bg-gray-100 rounded-lg`}
-                            style={{
-                                minHeight,
-                                height: minHeight,
-                            }}
-                        >
-                            <div className="flex items-center justify-center h-full">
-                                <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-                            </div>
-                        </div>
-                    }
-                >
-                    <LazyComponent />
-                </Suspense>
-            ) : (
-                <div
-                    className={`${fallbackHeight} bg-transparent`}
-                    style={{
-                        minHeight,
-                        height: minHeight,
-                    }}
-                />
-            )}
-            {children}
-        </section>
+            {/* Skeleton loader */}
+            <div className="animate-pulse space-y-4 w-full max-w-7xl px-4">
+                <div className="h-40 bg-gray-200 rounded-lg"></div>
+                <div className="h-[600px] bg-gray-100 rounded-3xl"></div>
+            </div>
+        </div>
+    );
+
+    return (
+        <Suspense fallback={<Placeholder />}>
+            <Component />
+        </Suspense>
     );
 };
 

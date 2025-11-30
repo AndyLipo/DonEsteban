@@ -13,6 +13,7 @@ const MapSection = () => {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="min-h-[300px] md:min-h-[400px]"
+                    title='Mapa de ubicacion'
                 ></iframe>
             </div>
         </div>

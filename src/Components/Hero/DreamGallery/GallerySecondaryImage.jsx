@@ -27,7 +27,7 @@ const GallerySecondaryImage = ({
                 <img
                     src={src}
                     alt={alt}
-                    width="600"
+                    width="400"
                     height="600"
                     loading="eager"
                     fetchPriority="high"

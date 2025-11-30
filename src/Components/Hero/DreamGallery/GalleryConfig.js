@@ -15,7 +15,7 @@ export const galleryConfig = {
         src: Camion,
         alt: "Servicio de desagote profesional - Don Esteban",
         width: "600",
-        height: "400",
+        height: "800",
         priority: false,
         fetchPriority: "auto"
     },

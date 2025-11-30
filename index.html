@@ -7,16 +7,37 @@
 
   <!-- Preconnect crítico -->
   <link rel="preconnect" href="https://www.google.com">
-  <link rel="dns-prefetch" href="https://www.google.com">
   <link rel="preconnect" href="https://www.gstatic.com">
-  <link rel="dns-prefetch" href="https://www.gstatic.com">
 
-  <!-- Preload de imágenes LCP ESTRATÉGICO -->
-  <link rel="preload" href="/assets/camion-costado.webp" as="image" type="image/webp" fetchpriority="high">
-  <link rel="preload" href="/assets/camion-trabajo.webp" as="image" type="image/webp" fetchpriority="high">
+  <!-- ⚡ CSS CRÍTICO INLINE - Above the fold -->
 
-  <!-- Preload de fuentes -->
-  <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Preload imagen hero (NO el video) -->
+  <link rel="preload" href="/assets/HeroImageCamion.webp" as="image" type="image/webp" fetchpriority="high">
+
+  <!-- CSS principal - Load después del critical -->
+  <link rel="preload" href="/assets/styles-CxNIUDWw.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/assets/styles-CxNIUDWw.css">
+  </noscript>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/ico" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192 .png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Don Esteban Atmosféricos - Desagotes y Limpieza de Pozos">
+  <meta property="og:description"
+    content="Servicio profesional de desagote, limpieza de pozos, cámaras sépticas y cañerías. Atención rápida y segura en La Plata y alrededores.">
+  <meta property="og:image" content="https://donestebanatmosfericos.com.ar/logo">
+  <meta property="og:url" content="https://donestebanatmosfericos.com.ar">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
 
   <!-- Meta tags SEO -->
   <meta name="description"
@@ -28,54 +49,6 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://donestebanatmosfericos.com.ar/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-  <!-- Íconos -->
-  <link rel="icon" type="image/webp" sizes="32x32" href="/logoGr.webp">
-  <link rel="apple-touch-icon" sizes="180x180" href="/logoGr.webp">
-
-  <!-- CSS Crítico Inline -->
-  <style>
-    /* Inter Fallback */
-    @font-face {
-      font-family: 'Inter Fallback';
-      src: local('Arial');
-      ascent-override: 90.20%;
-      descent-override: 22.48%;
-      line-gap-override: 0.00%;
-      size-adjust: 107.40%;
-      font-display: swap;
-    }
-
-    /* Estilos críticos para prevenir CLS */
-    html {
-      font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
-      scroll-behavior: smooth;
-      font-display: swap;
-    }
-
-    /* Estilos base para prevenir FOUC */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-      color: #000000;
-    }
-
-    #root {
-      min-height: 100vh;
-    }
-
-    /* Reservar espacio para imágenes LCP */
-    .lcp-image-container {
-      aspect-ratio: 1/1;
-      background-color: #f3f4f6;
-      position: relative;
-      overflow: hidden;
-    }
-  </style>
-
-  <!-- CSS No Crítico -->
-  <link rel="stylesheet" href="/fonts/inter.css" media="print" onload="this.media='all'">
 
   <!-- Datos estructurados -->
   <script type="application/ld+json">
@@ -95,12 +68,32 @@
         "addressCountry": "AR"
       },
       "openingHours": "Mo-Su 00:00-23:59",
-      "image": "https://donestebanatmosfericos.com.ar/logoGr.webp",
+      "image": "https://donestebanatmosfericos.com.ar/logo-ppal.png",
+      "logo": "https://donestebanatmosfericos.com.ar/logo-ppal.png",
       "sameAs": [
         "https://www.facebook.com/people/Atmosferico-Esteban/pfbid01FUTrKHPucEMajafgGB1vRJS4VPpyJtUbHmW8itS3PbvZTsEHKZ739uDyAVRrJU9l/",
         "https://www.instagram.com/atmosfericos.donesteban/"
       ]
     }
+  </script>
+
+  <!-- ⚡ Google Analytics - Carga DESPUÉS del LCP -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GVTMY19FPE';
+        script.async = true;
+        document.head.appendChild(script);
+
+        script.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-GVTMY19FPE');
+        };
+      }, 1500);
+    });
   </script>
 
   <title>Don Esteban Atmosféricos | Servicio Rápido de Desagote en tu Zona</title>
@@ -110,9 +103,9 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 
-  <!-- Fallback para navegadores sin JS -->
+  <!-- Fallback sin JS -->
   <noscript>
-    <div style="text-align: center; padding: 2rem; font-family: Arial, sans-serif;">
+    <div style="text-align:center;padding:2rem;font-family:Arial,sans-serif;">
       <h1>Don Esteban Atmosféricos</h1>
       <p>Servicio rápido y confiable de desagote de piletas, atmosférico, pozos e industriales.</p>
       <p>Por favor, habilita JavaScript para ver el sitio completo.</p>

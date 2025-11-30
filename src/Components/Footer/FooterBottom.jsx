@@ -22,6 +22,8 @@ const FooterBottom = ({
                 <button
                     key={index}
                     className="hover:text-gray-700 transition-colors duration-200 cursor-pointer whitespace-nowrap"
+                    aria-label={`Ver política de ${link.toLowerCase()}`}
+
                 >
                     {link}
                 </button>

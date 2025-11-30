@@ -24,15 +24,24 @@ const ContactForm = () => {
             className="mx-auto px-4 sm:px-6 py-12 md:py-20 bg-white text-black max-w-7xl"
             aria-labelledby="contact-form-title"
             style={{
-                contain: 'layout',
-                minHeight: 'min-content'
+                // ⚡ CRÍTICO: Reserva espacio fijo para evitar CLS
+                minHeight: '900px', // Ajusta según altura real de tu formulario
+                contain: 'layout style paint',
             }}
         >
-            <div style={{ minHeight: '180px' }}>
+            {/* ⚡ Altura fija para el header */}
+            <div style={{ minHeight: '180px', contain: 'layout' }}>
                 <BenefitsHeader />
             </div>
 
-            <Card className="rounded-3xl bg-gray-100">
+            {/* ⚡ Altura fija para el card */}
+            <Card
+                className="rounded-3xl bg-gray-100"
+                style={{
+                    minHeight: '650px', // Ajusta según altura real
+                    contain: 'layout style'
+                }}
+            >
                 <CardContent className="p-0">
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                         <ContactInputs
