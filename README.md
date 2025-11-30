@@ -1,12 +1,42 @@
-# React + Vite
+# Don Esteban Atmosféricos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page corporativa para empresa de servicios de camiones atmosféricos, con expansión futura al sector de piletas.
 
-Currently, two official plugins are available:
+🌐 **Sitio web:** [donestebanatmosfericos.com.ar](https://donestebanatmosfericos.com.ar)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Descripción
 
-## Expanding the ESLint configuration
+Sitio web profesional diseñado para promocionar y facilitar la contratación de servicios de camiones atmosféricos. La plataforma presenta información clara sobre los servicios ofrecidos y permite a los clientes potenciales contactar directamente con la empresa a través de formularios seguros.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologías Utilizadas
+
+- **React** - Biblioteca de JavaScript para construir la interfaz de usuario
+- **Tailwind CSS** - Framework de CSS para diseño responsivo y moderno
+- **Formspree** - Servicio de gestión de formularios de contacto
+- **Google reCAPTCHA** - Protección contra spam y bots en formularios
+
+## Características Principales
+
+- ✨ Diseño moderno y responsivo
+- 📱 Optimizado para dispositivos móviles
+- 📧 Formulario de contacto seguro con validación
+- 🛡️ Protección anti-spam mediante Google reCAPTCHA
+- 🚀 Interfaz rápida y optimizada
+- 🎯 Enfoque en conversión de clientes potenciales
+
+## Próximas Funcionalidades
+
+- 🏊 Sección dedicada a servicios de piletas
+- 📊 Ampliación de servicios ofrecidos
+
+## Desarrollo
+
+Este proyecto fue desarrollado con React y está optimizado para producción. El sitio está deployado y accesible en [donestebanatmosfericos.com.ar](https://donestebanatmosfericos.com.ar).
+
+## Contacto
+
+Para consultas sobre servicios, visita el sitio web oficial en [donestebanatmosfericos.com.ar](https://donestebanatmosfericos.com.ar)
+
+---
+
+Desarrollado para Don Esteban Atmosféricos
