@@ -23,7 +23,7 @@ const HomeAdvanced = () => {
                 <LazySection importFunc={() => import('@/Components/AboutHome/AboutHome')} />
                 <LazySection importFunc={() => import('@/Components/AboutHome/TrustSupport')} />
                 <LazySection importFunc={() => import('@/Components/Categories/OurWork')} />
-                <LazySection importFunc={() => import('@/Components/Testimonial/Testimonial')} />
+                {/* <LazySection importFunc={() => import('@/Components/Testimonial/Testimonial')} /> */}
                 <LazySection importFunc={() => import('@/Components/GoogleMap/MapSection')} className="px-0" fallbackHeight="h-80" />
             </main>
 
