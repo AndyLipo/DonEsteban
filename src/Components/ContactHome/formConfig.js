@@ -1,7 +1,7 @@
 export const motivo = [
     { value: "Desagote de pileta", label: "Desagote de pileta" },
-    { value: "Pozo septico", label: "Desagote de pozo" },
-    { value: "Desagote empresas", label: "Desagote empresas" },
+    { value: "Pozo septico", label: "Destapaciones de pozo" },
+    { value: "Desagote empresas", label: "Destapaciones para empresas" },
     { value: "Limpieza Asequias", label: "Limpieza Asequias" },
     { value: "Plomeria", label: "Arreglos de plomeria" },
 ]

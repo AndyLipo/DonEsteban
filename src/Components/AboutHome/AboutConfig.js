@@ -15,7 +15,7 @@ export const aboutConfig = {
         mainTitle: {
             prefix: "La solución ",
             highlight: "rápida y confiable",
-            suffix: " para tus necesidades de desagote."
+            suffix: " para tus necesidades de destapaciones."
         },
         description: "Somos una empresa familiar en crecimiento, ubicada en Ingeniero Maschwitz, Escobar, con más de una década brindando servicios de desagote, destapaciones y plomería. Contamos con camiones atmosféricos adaptados para , cámara sépticas, sótanos y piletas. Atendemos urgencias, contamo con servicio nocturno programado. Garantizamos un servicio seguro, puntual y responsable, cuidando siempre el medioambiente.",
         brandStatement: "Comprometidos con nuestros clientes y con el entorno, combinamos experiencia, tecnología y un trato cercano para resolver cualquier necesidad de forma eficaz."
