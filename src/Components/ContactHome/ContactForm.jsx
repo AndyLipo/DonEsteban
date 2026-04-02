@@ -1,10 +1,10 @@
-import { Card, CardContent } from "@/components/ui/card"
 import { useContactForm } from "./useContactForm"
 import { formConfig } from "./formConfig"
 import BenefitsHeader from "./BenefitsHeader"
 import ContactInputs from "./ContactInputs"
 import FormImage from "./FormImage"
 import ModalSuccess from './ModalSucces'
+import { Card, CardContent } from "../ui/card"
 
 const ContactForm = () => {
     const {
