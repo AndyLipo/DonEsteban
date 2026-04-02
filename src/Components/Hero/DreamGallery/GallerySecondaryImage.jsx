@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import DecorativeSVG from "./DecorativeSVG";
 import ActionButton from "./ActionButton";
+import DecorativeSVG from "./DecorativeSvg";
 
 const GallerySecondaryImage = ({
     src = "/assets/camion-costado.webp",
