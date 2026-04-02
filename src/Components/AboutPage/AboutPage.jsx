@@ -1,9 +1,9 @@
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
-import HeroSection from './HeroSection';
 import VisionSection from './VisionSection';
 import BenefitsSection from './BenefitsSection';
 import ValuesSection from './ValuesSection';
+import HeroSection from './Herosection';
 
 export default function AboutPage() {
     return (
