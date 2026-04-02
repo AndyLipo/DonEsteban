@@ -1,7 +1,3 @@
-import React from "react"
-import { Separator } from "@/components/ui/separator"
-import FooterBottom from "./FooterBottom"
-
 const FooterContact = ({
     phone = "+54 9 11 4044-2669",
     phone2 = "+54 9 11 3634-9494",
