@@ -40,7 +40,7 @@ export const workConfig = {
     specialization: {
         title: {
             prefix: "Nuestros servicios de ",
-            highlight: "especialización en desagote",
+            highlight: "especialización en destapaciones",
         },
         description:
             "Cada tipo de obstrucción o pozo requiere una solución distinta. Nuestro equipo brinda atención personalizada, rápida y segura en Escobar, Maschwitz y toda la Zona Norte.",
