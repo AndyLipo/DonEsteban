@@ -1,6 +1,5 @@
-
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { Card, CardContent } from "../ui/card";
 
 export default function WorkPng() {
     return (
