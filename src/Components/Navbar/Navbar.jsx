@@ -48,7 +48,7 @@ export default function Navbar({
                     </NavLink>
 
                     {/* Desktop Navigation - Oculto en mobile, centrado en desktop */}
-                    <nav className="hidden md:flex md:items-center md:flex-1 md:justify-center md:ml-8">
+                    <nav className="hidden md:flex md:items-center md:flex-1 md:justify-end">
                         <FooterNavigation
                             links={navLinks}
                             onNavClick={handleNavClick}
