@@ -1,5 +1,4 @@
 import React from "react"
-import { Separator } from "@/components/ui/separator"
 
 const FooterHero = ({
     title = "Tener un problema",
