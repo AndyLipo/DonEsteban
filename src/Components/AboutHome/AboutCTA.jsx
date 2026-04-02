@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useNavigate } from 'react-router-dom'
+import { Button } from "../ui/button"
 
 const AboutCTA = ({
     text = "Contacto",
