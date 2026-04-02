@@ -21,7 +21,7 @@ export const workConfig = {
         image: Pileta,
         title: {
             subtitle: "Nos especializamos en servicios confiables",
-            main: "Desagote profesional en Zona Norte",
+            main: "Destapaciones profesional en Zona Norte",
         },
         alt: "Camión de desagote en Ingeniero Maschwitz realizando trabajos de pozo séptico",
     },
