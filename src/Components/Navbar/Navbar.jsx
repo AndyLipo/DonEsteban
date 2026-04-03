@@ -9,7 +9,7 @@ export default function Navbar({
         { name: "Inicio", path: "/Inicio" },
         { name: "Sobre nosotros", path: "/About" },
         { name: "Contacto", path: "/Contacto" },
-        { name: "Solicitar Presupuesto", path: '/#contact-form' },
+        { name: "Solicitar Presupuesto", path: null },
     ],
 }) {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -39,7 +39,7 @@ export default function Navbar({
     }
 
     return (
-        <header className="fixed top-0 left-0 z-50 w-full bg-white/40 backdrop-blur-md shadow-sm">
+        <header className="fixed top-0 left-0 z-50 w-full bg-white/40 backdrop-blur-md shadow-sm rounded-3xl">
             <div className="container mx-auto">
                 <div className="flex items-center justify-between px-3 py-3 sm:px-6">
                     {/* Logo */}

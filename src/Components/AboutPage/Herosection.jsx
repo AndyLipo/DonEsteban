@@ -15,7 +15,7 @@ const HeroSection = () => (
                         industrias y municipios, cuidando el entorno y priorizando la salud pública.
                     </p>
                     <div className="flex items-center gap-6">
-                        <StatItem icon={Award} text="25+ años de experiencia" />
+                        <StatItem icon={Award} text="8+ años de experiencia" />
                         <StatItem icon={Users} text="500+ clientes satisfechos" />
                     </div>
                 </div>

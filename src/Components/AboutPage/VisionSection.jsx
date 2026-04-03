@@ -32,8 +32,8 @@ const ServiceCard = () => (
 const VisionContent = () => {
     const services = [
         "Servicio nocturno",
-        "Desagotes de piletas",
-        "Desagotes de pozos ciegos"
+        "Destapaciones de piletas",
+        "Destapaciones de pozos ciegos"
     ];
 
     return (
@@ -47,7 +47,7 @@ const VisionContent = () => {
                 Nuestra <span className="text-blue-600">Visión</span> de la empresa
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-                Ser los líderes en servicios ambientales con camiones atmosféricos en la región,
+                Ser los líderes en servicios ambientales con camiones atmosféricos y destapaciones en la región,
                 reconocida por su compromiso con el medioambiente, la innovación constante y
                 la excelencia en la atención al cliente.
             </p>

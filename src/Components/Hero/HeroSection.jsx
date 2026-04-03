@@ -26,7 +26,7 @@ const HeroSection = memo(() => {
             className="flex flex-col-reverse lg:flex-row justify-between items-center bg-white max-w-7xl mx-auto hero-section"
             aria-label="hero-heading"
         >
-            <div className="space-y-4 w-full">
+            <div className="space-y-4 w-full flex mt-10">
                 {!shouldLoadVideo ? (
                     // ⚡ IMAGEN ESTÁTICA primero (LCP rápido)
                     <img
