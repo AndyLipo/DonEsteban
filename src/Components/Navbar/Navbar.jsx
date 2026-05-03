@@ -6,9 +6,9 @@ import FooterNavigation from '../Footer/FooterNavigation'
 
 export default function Navbar({
     navLinks = [
-        { name: "Inicio", path: "/Inicio" },
-        { name: "Sobre nosotros", path: "/About" },
-        { name: "Contacto", path: "/Contacto" },
+        { name: "Inicio", path: "/" },           // también corregido a minúscula
+        { name: "Sobre nosotros", path: "/about" },
+        { name: "Contacto", path: "/contacto" },
         { name: "Solicitar Presupuesto", path: null },
     ],
 }) {
