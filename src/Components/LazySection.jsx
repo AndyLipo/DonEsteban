@@ -1,13 +1,18 @@
 import { Suspense, lazy } from 'react';
 
-/**
- * Componente para cargar secciones lazy con placeholder
- * Evita CLS reservando espacio antes de cargar
- */
-const LazySection = ({ importFunc, id = '' }) => {
-    const Component = lazy(importFunc);
+// El mapa de componentes se crea UNA SOLA VEZ afuera
+const componentCache = new Map();
 
-    // Placeholder mientras carga (reserva espacio para evitar CLS)
+const getLazy = (importFunc) => {
+    if (!componentCache.has(importFunc)) {
+        componentCache.set(importFunc, lazy(importFunc));
+    }
+    return componentCache.get(importFunc);
+};
+
+const LazySection = ({ importFunc, id = '' }) => {
+    const Component = getLazy(importFunc); // estable entre renders
+
     const Placeholder = () => (
         <div
             id={id}
@@ -22,7 +27,6 @@ const LazySection = ({ importFunc, id = '' }) => {
             aria-busy="true"
             aria-live="polite"
         >
-            {/* Skeleton loader */}
             <div className="animate-pulse space-y-4 w-full max-w-7xl px-4">
                 <div className="h-40 bg-gray-200 rounded-lg"></div>
                 <div className="h-[600px] bg-gray-100 rounded-3xl"></div>

@@ -11,9 +11,12 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Contacto" element={<Contact />} />
-        {/* 👇 Redirect en vez de duplicar */}
+        <Route path="/about" element={<About />} />
+        <Route path="/contacto" element={<Contact />} />
+
+        {/* Redirects por si alguien llega a las URLs con mayúscula */}
+        <Route path="/About" element={<Navigate to="/about" replace />} />
+        <Route path="/Contacto" element={<Navigate to="/contacto" replace />} />
         <Route path="/Inicio" element={<Navigate to="/" replace />} />
       </Routes>
     </>

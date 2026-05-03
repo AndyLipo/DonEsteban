@@ -81,22 +81,22 @@
   <script>
     window.addEventListener('load', function () {
       setTimeout(function () {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); }; // ← global
+
         var script = document.createElement('script');
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GVTMY19FPE';
         script.async = true;
-        document.head.appendChild(script);
-
         script.onload = function () {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          gtag('js', new Date());
-          gtag('config', 'G-GVTMY19FPE');
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-GVTMY19FPE');
         };
+        document.head.appendChild(script);
       }, 1500);
     });
   </script>
 
-  <title>Don Esteban Atmosféricos | Servicio Rápido de Desagote</title>
+  <title>Don Esteban Atmosféricos | Servicio de Desagote y Destapaciones</title>
 </head>
 
 <body>

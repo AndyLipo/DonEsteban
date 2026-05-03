@@ -4,6 +4,7 @@ import Navbar from '@/Components/Navbar/Navbar';
 import HeroSection from '@/Components/Hero/HeroSection';
 import WhatssaAppBtn from '@/Components/WhatssAppBtn/WhatssAppBtn';
 import LazySection from '@/Components/LazySection';
+import { Helmet } from 'react-helmet-async';
 
 const HomeAdvanced = () => {
     const location = useLocation();
@@ -32,6 +33,12 @@ const HomeAdvanced = () => {
 
     return (
         <div className="bg-white overflow-x-hidden">
+            <Helmet>
+                <title>Don Esteban Atmosféricos | Destapaciones y Desagote en Zona Norte GBA</title>
+                <meta name="description" content="Servicio urgente de destapaciones de piletas, pozos y cámaras sépticas. Camiones atmosféricos en Escobar, Maschwitz, Tigre y alrededores. Presupuesto sin cargo." />
+                <meta property="og:title" content="Don Esteban Atmosféricos | Destapaciones y Desagote" />
+                <link rel="canonical" href="https://donestebanatmosfericos.com.ar/" />
+            </Helmet>
             <nav>
                 <Navbar />
             </nav>
