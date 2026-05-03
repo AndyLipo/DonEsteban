@@ -1,10 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/Components/Navbar/Navbar';
 import HeroSection from '@/Components/Hero/HeroSection';
 import WhatssaAppBtn from '@/Components/WhatssAppBtn/WhatssAppBtn';
 import LazySection from '@/Components/LazySection';
-import { Helmet } from 'react-helmet-async';
+
+// Estos dos se importan directo — Google necesita leer su contenido
+import AboutHome from '@/Components/AboutHome/AboutHome';
+import TrustSupport from '@/Components/AboutHome/TrustSupport';
 
 const HomeAdvanced = () => {
     const location = useLocation();
@@ -13,20 +17,15 @@ const HomeAdvanced = () => {
     useEffect(() => {
         if (location.state?.scrollToForm) {
             scrollAttempts.current = 0;
-
-            // Espera a que el LazySection cargue el formulario
             const tryScroll = () => {
                 const form = document.getElementById('contact-form');
                 if (form) {
                     form.scrollIntoView({ behavior: 'smooth' });
                 } else if (scrollAttempts.current < 20) {
-                    // Reintenta hasta 20 veces (2 segundos)
                     scrollAttempts.current++;
                     setTimeout(tryScroll, 100);
                 }
             };
-
-            // Pequeño delay inicial para que React renderice
             setTimeout(tryScroll, 300);
         }
     }, [location.state]);
@@ -39,6 +38,7 @@ const HomeAdvanced = () => {
                 <meta property="og:title" content="Don Esteban Atmosféricos | Destapaciones y Desagote" />
                 <link rel="canonical" href="https://donestebanatmosfericos.com.ar/" />
             </Helmet>
+
             <nav>
                 <Navbar />
             </nav>
@@ -48,14 +48,24 @@ const HomeAdvanced = () => {
                     <HeroSection />
                 </section>
 
+                {/* Lazy: galería visual, no aporta keywords */}
                 <LazySection importFunc={() => import('@/Components/Hero/DreamGallery/DreamGallery')} fallbackHeight="h-94" />
-                <LazySection importFunc={() => import('@/Components/ContactHome/ContactForm')} prefetch priority="high"
+
+                {/* Lazy: formulario, pesado pero no crítico para SEO */}
+                <LazySection
+                    importFunc={() => import('@/Components/ContactHome/ContactForm')}
                     id="contact-form"
                     minHeight="900px"
                 />
-                <LazySection importFunc={() => import('@/Components/AboutHome/AboutHome')} />
-                <LazySection importFunc={() => import('@/Components/AboutHome/TrustSupport')} />
+
+                {/* Directo: Google necesita leer este contenido */}
+                <AboutHome />
+                <TrustSupport />
+
+                {/* Lazy: categorías visuales */}
                 <LazySection importFunc={() => import('@/Components/Categories/OurWork')} />
+
+                {/* Lazy: mapa */}
                 <LazySection importFunc={() => import('@/Components/GoogleMap/MapSection')} className="px-0" fallbackHeight="h-80" />
             </main>
 

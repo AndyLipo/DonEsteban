@@ -31,7 +31,7 @@ const HeroSection = memo(() => {
                     // ⚡ IMAGEN ESTÁTICA primero (LCP rápido)
                     <img
                         src="/assets/HeroImageCamion.webp"
-                        alt="Camión de desagote Don Esteban"
+                        alt="Camión atmosférico para destapaciones y desagote de pozos en Escobar y zona norte GBA"
                         className="w-full h-auto rounded-b-2xl aspect-video"
                         fetchPriority="high"
                         width="1920"
