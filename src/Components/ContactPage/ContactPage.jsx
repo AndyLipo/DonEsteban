@@ -19,7 +19,7 @@ export default function ContactPage() {
         <>
             <Helmet>
                 <title>Contacto | Don Esteban Atmosféricos - Destapaciones y Desagote</title>
-                <meta name="description" content="Contactanos para destapaciones urgentes, desagote de pozos y cámaras sépticas en Escobar, Maschwitz, Tigre y zona norte de Buenos Aires. Atención 24hs." />
+                <meta name="description" content="Servicio urgente de destapaciones de pozos y cámaras sépticas, y plomeria. Camiones atmosféricos en Escobar, Maschwitz, Tigre y alrededores. Presupuesto sin cargo. Atencion 24hs" />
                 <link rel="canonical" href="https://donestebanatmosfericos.com.ar/contacto" />
             </Helmet>
 
